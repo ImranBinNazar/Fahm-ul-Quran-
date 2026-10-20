@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="ur">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#123c32">
+<title>Fahm-ul-Quran | فہم القرآن</title>
+<style>
+:root{--green:#123c32;--green2:#1e5a49;--gold:#c9a65a;--cream:#f7f5ee;--ink:#202b27;--muted:#66746d;--white:#fff;--line:#e4e7df}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:system-ui,-apple-system,"Noto Sans Arabic","Noto Naskh Arabic",sans-serif;line-height:1.65}
+header{background:linear-gradient(135deg,#0e3029,#1d5947);color:#fff;padding:18px 16px 54px;border-bottom:4px solid var(--gold)}
+.top{max-width:1050px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{font-weight:800;font-size:1.12rem;letter-spacing:.2px}.brand span{display:block;font-weight:500;color:#e7d9b5;font-size:.88rem}
+select,button,input{font:inherit}select{border:1px solid #ffffff55;border-radius:10px;padding:8px;background:#17483b;color:white}
+.hero{max-width:850px;margin:36px auto 0;text-align:center}.eyebrow{color:#e7d9b5;font-size:.9rem;letter-spacing:1px}.hero h1{font-size:clamp(2rem,7vw,3.5rem);line-height:1.2;margin:12px 0}.hero p{max-width:650px;margin:0 auto;color:#e7eee9;font-size:1.04rem}
+.wrap{max-width:1050px;margin:-28px auto 0;padding:0 14px 42px}.searchbox{background:white;padding:12px;border-radius:16px;box-shadow:0 10px 30px #142c2414;display:flex;gap:8px}.searchbox input{min-width:0;flex:1;border:1px solid var(--line);border-radius:10px;padding:12px;color:var(--ink)}button{border:0;border-radius:10px;background:var(--green2);color:white;padding:11px 16px;cursor:pointer;font-weight:650}button:hover{filter:brightness(1.08)}.nav{display:flex;gap:8px;overflow:auto;padding:16px 0 12px}.nav button{white-space:nowrap;background:#e7ece5;color:var(--green);border:1px solid #dce4dc}.nav button.active{background:var(--green);color:white}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.card{background:white;border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:0 4px 14px #142c2408}.card h2,.card h3{margin:0 0 8px;color:var(--green)}.card p{margin:6px 0}.kicker{font-size:.82rem;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.5px}.big-ar{font-family:"Noto Naskh Arabic","Amiri",serif;font-size:2rem;line-height:1.9;text-align:right;color:#183f34;direction:rtl}.translation{font-size:1.03rem}.note{border-left:3px solid var(--gold);padding:8px 12px;background:#fbf8ef;border-radius:0 8px 8px 0;margin-top:12px}.pill{display:inline-block;background:#edf3ed;color:#245642;border-radius:99px;padding:4px 10px;font-size:.82rem;margin:3px 3px 3px 0}.section{margin-top:14px}.hidden{display:none}.verse-tools{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.verse-tools button{font-size:.9rem;padding:8px 12px}.muted{color:var(--muted)}footer{text-align:center;padding:22px 14px;color:var(--muted);font-size:.9rem}.warning{font-size:.9rem;color:#6a5940;background:#fff8e6;border:1px solid #eee0b9;border-radius:12px;padding:12px;margin-top:14px}
+@media(max-width:680px){.grid{grid-template-columns:1fr}.card{padding:16px}.hero{margin-top:28px}.searchbox{flex-wrap:wrap}.searchbox button{width:100%}.top{align-items:flex-start}}
+</style>
+</head>
+<body>
+<header>
+  <div class="top">
+    <div class="brand">Fahm-ul-Quran <span>فہم القرآن</span></div>
+    <select id="lang" aria-label="Language">
+      <option value="ur">اردو</option><option value="en">English</option><option value="ar">العربية</option>
+    </select>
+  </div>
+  <div class="hero">
+    <div class="eyebrow" id="eyebrow">قرآن کو سمجھنے، غور کرنے اور عمل کرنے کا سفر</div>
+    <h1 id="heroTitle">قرآن کو صرف پڑھیں نہیں، سمجھیں بھی</h1>
+    <p id="heroDesc">آیت کے سیاق، بنیادی مفہوم، قرآنی الفاظ اور عملی پیغام کا مطالعہ — آسان انداز میں۔</p>
+  </div>
+</header>
+<main class="wrap">
+  <div class="searchbox">
+    <input id="search" type="search" placeholder="آیت، لفظ یا Root تلاش کریں — مثال: ولي" aria-label="Search">
+    <button onclick="doSearch()" id="searchBtn">تلاش کریں</button>
+  </div>
+  <nav class="nav" aria-label="Main sections">
+    <button class="active" data-page="home" id="tab-home" onclick="showPage('home')">ہوم</button>
+    <button data-page="quran" id="tab-quran" onclick="showPage('quran')">قرآن و آیات</button>
+    <button data-page="roots" id="tab-roots" onclick="showPage('roots')">قرآنی Roots</button>
+    <button data-page="tafsir" id="tab-tafsir" onclick="showPage('tafsir')">تفسیر</button>
+    <button data-page="tadabbur" id="tab-tadabbur" onclick="showPage('tadabbur')">تدبر و عمل</button>
+    <button data-page="about" id="tab-about" onclick="showPage('about')">ہمارے بارے میں</button>
+  </nav>
+
+  <section id="page-home" class="page">
+    <div class="grid">
+      <article class="card">
+        <div class="kicker">شروع یہاں سے</div><h2>آیت کا مطالعہ</h2>
+        <p>عربی متن، ترجمہ، سیاق و سباق اور مرکزی پیغام کو ایک ترتیب سے سمجھیں۔</p>
+        <button onclick="showPage('quran')">آیات دیکھیں</button>
+      </article>
+      <article class="card">
+        <div class="kicker">لفظ کی گہرائی</div><h2>قرآنی Root Explorer</h2>
+        <p>Root کا بنیادی لغوی تصور، لفظی ساخت اور قرآن میں مختلف استعمالات کا فرق جانیں۔</p>
+        <button onclick="showPage('roots')">Roots سیکھیں</button>
+      </article>
+      <article class="card">
+        <div class="kicker">مستند فہم</div><h2>تفسیر مع حوالہ</h2>
+        <p>آیت کو اس کے سیاق اور معتبر تفسیری ماخذ کی روشنی میں پڑھیں۔</p>
+        <button onclick="showPage('tafsir')">تفسیر کا حصہ</button>
+      </article>
+      <article class="card">
+        <div class="kicker">عملی تعلق</div><h2>تدبر و خود احتسابی</h2>
+        <p>آیت کے پیغام کو اپنی سوچ، رویّے اور روزمرہ فیصلوں سے جوڑیں۔</p>
+        <button onclick="showPage('tadabbur')">تدبر شروع کریں</button>
+      </article>
+    </div>
+    <div class="card section">
+      <div class="kicker">نمونہ مطالعہ</div><h2>سورۃ الحجرات — آیت 13</h2>
+      <div class="big-ar">يَا أَيُّهَا النَّاسُ إِنَّا خَلَقْنَاكُم مِّن ذَكَرٍ وَأُنثَىٰ وَجَعَلْنَاكُمْ شُعُوبًا وَقَبَائِلَ لِتَعَارَفُوا ۚ إِنَّ أَكْرَمَكُمْ عِندَ اللَّهِ أَتْقَاكُمْ ۚ إِنَّ اللَّهَ عَلِيمٌ خَبِيرٌ</div>
+      <p class="translation"><b>آسان مفہوم:</b> اے لوگو! ہم نے تمہیں ایک مرد اور ایک عورت سے پیدا کیا اور تمہیں قوموں اور قبیلوں میں بنایا تاکہ تم ایک دوسرے کو پہچانو۔ اللہ کے نزدیک تم میں زیادہ عزت والا وہ ہے جو زیادہ تقویٰ والا ہے۔ بے شک اللہ سب کچھ جاننے والا، پوری خبر رکھنے والا ہے۔</p>
+      <div class="note"><b>مرکزی نکتہ:</b> قوم اور قبیلہ شناخت کے لیے ہیں، برتری کا معیار تقویٰ ہے۔ یہ نمونہ تعلیمی وضاحت ہے؛ مکمل علمی مواد حوالہ جاتی تحقیق کے ساتھ شامل کیا جائے گا۔</div>
+    </div>
+  </section>
+
+  <section id="page-quran" class="page hidden">
+    <div class="card">
+      <div class="kicker">Quran study</div><h2>قرآن و آیات</h2>
+      <p>ابتدائی ورژن میں یہ ایک نمونہ آیت ہے۔ اگلے مرحلے میں مکمل سورت/آیت نیویگیشن اور مستند ترجمہ ڈیٹا جوڑا جا سکتا ہے۔</p>
+      <h3>سورۃ الفاتحہ — آیت 1</h3>
+      <div class="big-ar">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+      <p><b>اردو:</b> اللہ کے نام سے، جو نہایت مہربان، بار بار رحم فرمانے والا ہے۔</p>
+      <p><b>English:</b> In the name of Allah, the Most Compassionate, the Most Merciful.</p>
+      <div class="note">نوٹ: ترجمے کے الفاظ مختلف مستند تراجم میں مختلف ہو سکتے ہیں۔ اشاعت سے پہلے منتخب مترجم اور ماخذ واضح کرنا بہتر ہے۔</div>
+    </div>
+  </section>
+
+  <section id="page-roots" class="page hidden">
+    <div class="grid">
+      <article class="card"><div class="kicker">نمونہ Root</div><h2>و ل ي — وَلِيَ</h2>
+      <p><b>بنیادی تصور:</b> قربت اور نزدیکی؛ سیاق کے مطابق اس سے سرپرستی، حمایت، وفاداری یا اختیار کے مفاہیم سامنے آ سکتے ہیں۔</p>
+      <p><b>اہم احتیاط:</b> ہر مقام پر ایک ہی اردو لفظ رکھ دینا درست نہیں؛ جملے اور سیاق کو دیکھنا ضروری ہے۔</p>
+      <span class="pill">لغوی معنی</span><span class="pill">صرفی شکلیں</span><span class="pill">قرآنی سیاق</span>
+      </article>
+      <article class="card"><div class="kicker">Root study method</div><h2>ہر Root کی ترتیب</h2>
+      <ol><li>مستند لغت میں بنیادی معنی</li><li>ثلاثی مجرد اور مزید فیہ شکلیں</li><li>قرآن میں استعمال ہونے والی شکلیں</li><li>قریب المعنی الفاظ سے فرق</li><li>آیت کے سیاق میں مناسب مفہوم</li></ol>
+      <p class="muted">مثالی مواد؛ مکمل لغوی حوالہ جات اگلے مرحلے میں شامل کیے جائیں گے۔</p></article>
+    </div>
+  </section>
+
+  <section id="page-tafsir" class="page hidden">
+    <div class="card"><h2>تفسیر القرآن</h2>
+      <p>ہر آیت کی وضاحت میں یہ ترتیب رکھی جائے گی:</p>
+      <ol><li>آیت کا درست متن اور ترجمہ</li><li>سابقہ و اگلی آیت سے تعلق</li><li>معتبر تفاسیر سے خلاصہ اور حوالہ</li><li>اہم الفاظ اور نزول/تاریخی پس منظر، جہاں معتبر طور پر ثابت ہو</li><li>واضح فرق: نص، مفسر کی تشریح اور ہمارا تدبری سوال</li></ol>
+      <div class="warning">علمی امانت: غیر یقینی روایت کو قطعی بات کے طور پر پیش نہیں کیا جائے گا، اور ذاتی تدبر کو مستند تفسیر کا متبادل نہیں کہا جائے گا۔</div>
+    </div>
+  </section>
+
+  <section id="page-tadabbur" class="page hidden">
+    <div class="card"><h2>تدبر و عمل</h2>
+      <p>ہر آیت کے بعد اپنے آپ سے پوچھیں:</p>
+      <ol><li>آیت کا بنیادی پیغام کیا ہے؟</li><li>یہ پیغام پچھلی اور اگلی آیت سے کیسے جڑتا ہے؟</li><li>یہ میری کس سوچ یا عادت کی اصلاح کرتا ہے؟</li><li>میں آج اس پر عمل کرنے کے لیے کون سا ایک قدم اٹھا سکتا ہوں؟</li></ol>
+      <p class="muted">تدبر کا مقصد اپنی رائے کو قرآن پر مسلط کرنا نہیں، بلکہ معتبر فہم کے اندر رہتے ہوئے خود احتسابی کرنا ہے۔</p>
+    </div>
+  </section>
+
+  <section id="page-about" class="page hidden">
+    <div class="card"><h2>Fahm-ul-Quran کا مقصد</h2>
+      <p>قرآن کے پیغام کو اردو، عربی اور انگریزی میں آسان، منظم اور ذمہ دارانہ انداز میں سمجھنے میں مدد دینا۔</p>
+      <p>یہ تعلیمی منصوبہ ہے، فتویٰ یا مستند عالم کی رہنمائی کا متبادل نہیں۔ ہر علمی مضمون کے ساتھ حوالہ، ماخذ اور جہاں ضروری ہو اختلافِ رائے واضح کیا جانا چاہیے۔</p>
+    </div>
+  </section>
+  <div id="searchResult" class="card section hidden" aria-live="polite"></div>
+</main>
+<footer>Fahm-ul-Quran · فہم القرآن<br>قرآن کو سمجھنے، تدبر کرنے اور عمل کرنے کی کوشش</footer>
+<script>
+const translations={
+ ur:{eyebrow:"قرآن کو سمجھنے، غور کرنے اور عمل کرنے کا سفر",title:"قرآن کو صرف پڑھیں نہیں، سمجھیں بھی",desc:"آیت کے سیاق، بنیادی مفہوم، قرآنی الفاظ اور عملی پیغام کا مطالعہ — آسان انداز میں.",search:"آیت، لفظ یا Root تلاش کریں — مثال: ولي",btn:"تلاش کریں",tabs:["ہوم","قرآن و آیات","قرآنی Roots","تفسیر","تدبر و عمل","ہمارے بارے میں"]},
+ en:{eyebrow:"A journey to understand, reflect on, and live by the Quran",title:"Read the Quran. Understand its message.",desc:"Explore context, meaning, Quranic vocabulary, and practical reflection in a clear, structured way.",search:"Search an ayah, word, or root — e.g. ولي",btn:"Search",tabs:["Home","Quran & Ayahs","Quranic Roots","Tafsir","Reflection & Practice","About"]},
+ ar:{eyebrow:"رحلة لفهم القرآن والتدبر فيه والعمل به",title:"اقرأ القرآن وتدبّر معانيه",desc:"تعرّف على سياق الآيات ومعانيها ومفرداتها ورسائلها العملية بأسلوب واضح ومنظم.",search:"ابحث عن آية أو كلمة أو جذر — مثال: ولي",btn:"بحث",tabs:["الرئيسية","القرآن والآيات","الجذور القرآنية","التفسير","التدبر والعمل","عن الموقع"]}
+};
+function showPage(name){document.querySelectorAll('.page').forEach(p=>p.classList.add('hidden'));document.getElementById('page-'+name).classList.remove('hidden');document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===name));window.scrollTo({top:document.querySelector('.nav').offsetTop-8,behavior:'smooth'});}
+document.getElementById('lang').addEventListener('change',e=>{const t=translations[e.target.value];document.documentElement.lang=e.target.value;document.documentElement.dir=e.target.value==='ar'||e.target.value==='ur'?'rtl':'ltr';document.getElementById('eyebrow').textContent=t.eyebrow;document.getElementById('heroTitle').textContent=t.title;document.getElementById('heroDesc').textContent=t.desc;document.getElementById('search').placeholder=t.search;document.getElementById('searchBtn').textContent=t.btn;['home','quran','roots','tafsir','tadabbur','about'].forEach((id,i)=>document.getElementById('tab-'+id).textContent=t.tabs[i]);});
+function doSearch(){const q=document.getElementById('search').value.trim();const box=document.getElementById('searchResult');box.classList.remove('hidden');if(!q){box.innerHTML='<h2>تلاش</h2><p>براہِ کرم کوئی لفظ، Root یا آیت لکھیں۔</p>';return;}let content='';if(/ولي|و ل ي|wly/i.test(q)){content='<h2>Root: و ل ي</h2><p>نمونہ نتیجہ: بنیادی لغوی تصور قربت/نزدیکی ہے۔ سیاق کے مطابق ولی، سرپرست، حامی یا متعلقہ مفہوم آ سکتا ہے۔ مکمل تحقیق کے لیے آیت اور مستند لغوی حوالہ دیکھنا ضروری ہے۔</p><button onclick="showPage(\\'roots\\')">Root Explorer کھولیں</button>';}else if(/فاتحہ|الفاتحة|fatiha/i.test(q)){content='<h2>سورۃ الفاتحہ</h2><p>نمونہ نتیجہ: سورۃ الفاتحہ کے مطالعے کے لیے قرآن و آیات کا حصہ کھولیں۔</p><button onclick="showPage(\\'quran\\')">قرآن و آیات کھولیں</button>';}else{content='<h2>تلاش کا نمونہ</h2><p>“'+q.replace(/[&<>"]/g,'')+'” کے لیے ابھی مکمل قرآنی ڈیٹا منسلک نہیں ہے۔ اس ابتدائی نمونے میں سرچ انٹرفیس موجود ہے؛ مکمل سرچ کے لیے تصدیق شدہ قرآن/Root ڈیٹا شامل کرنا اگلا مرحلہ ہوگا۔</p>';}box.innerHTML=content;box.scrollIntoView({behavior:'smooth',block:'nearest'});}
+</script>
+</body>
+</html>
