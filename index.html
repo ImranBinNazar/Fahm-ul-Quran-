@@ -75,4 +75,38 @@ document.getElementById('ayahSelect').addEventListener('change',updateAyah);
 function updateAyah(){const s=document.getElementById('surahSelect').value,a=document.getElementById('ayahSelect').value;const d=document.getElementById('ayahDisplay');if(s==='1'&&a==='1')d.innerHTML='<div class="arabic">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div><p>الفاتحة 1:1 · demo record</p>';else d.innerHTML='<div class="arabic">يَا أَيُّهَا النَّاسُ إِنَّا خَلَقْنَاكُم مِّن ذَكَرٍ وَأُنثَىٰ</div><p>الحجرات 49:13 · abbreviated demo excerpt; not full ayah</p>';}
 function escapeHtml(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 </script>
+<!-- Fahm-ul-Quran database connection -->
+<div id="fahm-db-status" style="padding:8px;font-size:14px;">
+  Quran database se connection check ho raha hai...
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+(async function () {
+  const SUPABASE_URL = 'https://belzexyabeiaupbaxtbc.supabase.co/rest/v1/';
+  const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_ggXNjHf0n8bdkY12f1wtJw_KN4FqBPK';
+
+  const status = document.getElementById('fahm-db-status');
+
+  try {
+    const client = supabase.createClient(
+      SUPABASE_URL,
+      SUPABASE_PUBLISHABLE_KEY
+    );
+
+    const { data, error } = await client
+      .from('surahs')
+      .select('*')
+      .limit(1);
+
+    if (error) throw error;
+
+    status.textContent = 'Database connected successfully!';
+    console.log('Fahm-ul-Quran database connected:', data);
+  } catch (error) {
+    status.textContent = 'Database connection check failed. Settings check karein.';
+    console.error('Database connection error:', error.message);
+  }
+})();
+</script>
 </body></html>
