@@ -132,12 +132,13 @@ function escapeHtml(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','
 
       status.textContent = 'Database se rabta kiya ja raha hai...';
 
-      const client = window.supabase.createClient(
-        SUPABASE_URL,
-        SUPABASE_PUBLISHABLE_KEY
-      );
+       window.fahmSupabase = window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_PUBLISHABLE_KEY
+);
+const client = window.fahmSupabase;
 
-      const result = await Promise.race([
+      const resultconst = await Promise.race([
         client.from('surahs').select('*').limit(1),
         new Promise((_, reject) =>
           setTimeout(
