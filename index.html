@@ -104,7 +104,7 @@ function escapeHtml(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','
     status.textContent = 'Database connected successfully!';
     console.log('Fahm-ul-Quran database connected:', data);
   } catch (error) {
-    status.textContent = 'Database connection check failed. Settings check karein.';
+    status.textContent = 'Database connection check failed. Settings check karein.'status.textContent = 'Database error: ' + error.message;
     console.error('Database connection error:', error.message);
   }
 })();
