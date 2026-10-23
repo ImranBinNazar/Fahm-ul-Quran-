@@ -132,13 +132,13 @@ function escapeHtml(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','
 
       status.textContent = 'Database se rabta kiya ja raha hai...';
 
-       window.fahmSupabase = window.supabase.createClient(
-  SUPABASE_URL,
-  SUPABASE_PUBLISHABLE_KEY
-);
-const client = window.fahmSupabase;
+      window.fahmSupabase = window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_PUBLISHABLE_KEY
+      );
+      const client = window.fahmSupabase;
 
-      const resultconst = await Promise.race([
+      const result = await Promise.race([
         client.from('surahs').select('*').limit(1),
         new Promise((_, reject) =>
           setTimeout(
@@ -162,4 +162,207 @@ const client = window.fahmSupabase;
   connectDatabase();
 })();
 </script>
+
+<script>
+/* Fahm-ul-Quran: live Quran Explorer */
+(async function () {
+  const status = document.getElementById('fahm-db-status');
+  const originalSurah = document.getElementById('surahSelect');
+  const originalAyah = document.getElementById('ayahSelect');
+  const display = document.getElementById('ayahDisplay');
+  if (!originalSurah || !originalAyah || !display) return;
+
+  // Replace the demo dropdowns so their old demo-only listeners cannot interfere.
+  const surahSelect = originalSurah.cloneNode(false);
+  const ayahSelect = originalAyah.cloneNode(false);
+  originalSurah.replaceWith(surahSelect);
+  originalAyah.replaceWith(ayahSelect);
+
+  const makeOption = (value, label) => {
+    const option = document.createElement('option');
+    option.value = String(value);
+    option.textContent = label;
+    return option;
+  };
+  const setDisplay = (arabic, reference, detail) => {
+    display.replaceChildren();
+    const verse = document.createElement('div');
+    verse.className = 'arabic';
+    verse.textContent = arabic || 'Arabic text available nahi hai.';
+    const ref = document.createElement('p');
+    ref.textContent = reference;
+    display.append(verse, ref);
+    if (detail) {
+      const note = document.createElement('p');
+      note.className = 'muted';
+      note.textContent = detail;
+      display.append(note);
+    }
+  };
+
+  try {
+    status.textContent = 'Quran Explorer database se connect ho raha hai...';
+    let client;
+    for (let i = 0; i < 150; i++) {
+      if (window.fahmSupabase) { client = window.fahmSupabase; break; }
+      await new Promise(resolve => setTimeout(resolve, 200));
+    }
+    if (!client) throw new Error('Database client tayyar nahi hua. Internet refresh karke dobara try karein.');
+
+    const surahResult = await client
+      .from('surahs')
+      .select('id,arabic_name,transliterated_name,english_name,ayah_count,revelation_type')
+      .order('id', { ascending: true });
+    if (surahResult.error) throw surahResult.error;
+    const surahs = surahResult.data || [];
+    if (!surahs.length) throw new Error('Surah table khaali hai ya read permission nahi hai.');
+
+    surahSelect.replaceChildren();
+    surahs.forEach(s => {
+      const label = `${s.id} · ${s.arabic_name || ''} ${s.transliterated_name || s.english_name || ''}`.trim();
+      surahSelect.append(makeOption(s.id, label));
+    });
+
+    async function loadAyahs() {
+      const surahId = Number(surahSelect.value);
+      ayahSelect.replaceChildren(makeOption('', 'Ayat load ho rahi hain...'));
+      ayahSelect.disabled = true;
+      setDisplay('آیات لوڈ ہو رہی ہیں...', 'Surah ' + surahId, '');
+      const result = await client.from('ayahs')
+        .select('id,surah_id,ayah_number,arabic_text,text_source,text_version')
+        .eq('surah_id', surahId)
+        .order('ayah_number', { ascending: true });
+      if (result.error) throw result.error;
+      const ayahs = result.data || [];
+      if (!ayahs.length) throw new Error('Is Surah ki ayat nahi milin. Database permissions check karein.');
+      ayahSelect.replaceChildren();
+      ayahs.forEach(a => ayahSelect.append(makeOption(a.ayah_number, String(a.ayah_number))));
+      ayahSelect.disabled = false;
+      const selected = ayahs[0];
+      setDisplay(selected.arabic_text, `${surahs.find(x => Number(x.id) === surahId)?.arabic_name || ''} · ${surahId}:${selected.ayah_number}`,
+        `Source: ${selected.text_source || 'database'} · Version: ${selected.text_version || 'not specified'}`);
+      status.textContent = `Database connected successfully! ${surahs.length} Surah loaded.`;
+    }
+
+    async function showSelectedAyah() {
+      const surahId = Number(surahSelect.value);
+      const ayahNumber = Number(ayahSelect.value);
+      const result = await client.from('ayahs')
+        .select('arabic_text,text_source,text_version,ayah_number')
+        .eq('surah_id', surahId)
+        .eq('ayah_number', ayahNumber)
+        .maybeSingle();
+      if (result.error) throw result.error;
+      if (!result.data) throw new Error('Selected ayah database mein nahi mili.');
+      const s = surahs.find(x => Number(x.id) === surahId);
+      setDisplay(result.data.arabic_text, `${s?.arabic_name || ''} · ${surahId}:${result.data.ayah_number}`,
+        `Source: ${result.data.text_source || 'database'} · Version: ${result.data.text_version || 'not specified'}`);
+    }
+
+    surahSelect.addEventListener('change', () => loadAyahs().catch(e => {
+      status.textContent = 'Quran Explorer error: ' + (e.message || 'Unknown error');
+    }));
+    ayahSelect.addEventListener('change', () => showSelectedAyah().catch(e => {
+      status.textContent = 'Ayah load error: ' + (e.message || 'Unknown error');
+    }));
+    await loadAyahs();
+    const badge = document.querySelector('#page-quran .pill');
+    if (badge) badge.textContent = 'Live Quran database';
+    const notice = document.querySelector('#page-quran .notice');
+    if (notice) notice.textContent = 'Arabic Quran text database se load hota hai. Urdu aur English translations abhi verified/licensed source add hone ke baad dikhaye jayenge.';
+  } catch (error) {
+    status.textContent = 'Quran Explorer error: ' + (error.message || 'Unknown error');
+    console.error('Fahm-ul-Quran Quran Explorer:', error);
+  }
+})();
+</script>
+
+
+<script>
+/* Quran Explorer: load Surahs and Ayat from the existing Supabase database */
+(async function () {
+  const status = document.getElementById('fahm-db-status');
+  const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
+  try {
+    let tries = 0;
+    while (!window.fahmSupabase && tries < 150) { await wait(200); tries++; }
+    if (!window.fahmSupabase) throw new Error('Database client tayyar nahin hua. Page refresh karke dobara koshish karein.');
+
+    const db = window.fahmSupabase;
+    const oldSurah = document.getElementById('surahSelect');
+    const oldAyah = document.getElementById('ayahSelect');
+    const surahSelect = oldSurah.cloneNode(true); oldSurah.replaceWith(surahSelect);
+    const ayahSelect = oldAyah.cloneNode(true); oldAyah.replaceWith(ayahSelect);
+    const display = document.getElementById('ayahDisplay');
+    const pill = document.querySelector('#page-quran .section-head .pill');
+    let currentSurahs = [];
+
+    function setDisplay(arabic, reference, source) {
+      display.replaceChildren();
+      const text = document.createElement('div');
+      text.className = 'arabic';
+      text.textContent = arabic || 'Is ayah ka Arabic text nahin mila.';
+      const ref = document.createElement('p');
+      ref.textContent = reference;
+      display.append(text, ref);
+      if (source) {
+        const small = document.createElement('small');
+        small.className = 'muted';
+        small.textContent = 'Text source: ' + source;
+        display.appendChild(small);
+      }
+    }
+
+    async function loadAyahs() {
+      const sid = Number(surahSelect.value);
+      const surah = currentSurahs.find(x => Number(x.id) === sid);
+      ayahSelect.replaceChildren();
+      ayahSelect.disabled = true;
+      display.textContent = 'Ayat load ho rahi hain...';
+      const { data, error } = await db.from('ayahs')
+        .select('id,surah_id,ayah_number,arabic_text,text_source,text_version')
+        .eq('surah_id', sid).order('ayah_number');
+      if (error) throw error;
+      if (!data || !data.length) throw new Error('Is Surah ki Ayat table mein nahin milin.');
+      data.forEach(row => {
+        const opt = document.createElement('option');
+        opt.value = String(row.ayah_number);
+        opt.textContent = String(row.ayah_number);
+        ayahSelect.appendChild(opt);
+      });
+      ayahSelect.disabled = false;
+      const showSelected = () => {
+        const row = data.find(x => Number(x.ayah_number) === Number(ayahSelect.value));
+        if (row) setDisplay(row.arabic_text, `${surah.arabic_name} · ${surah.english_name} ${sid}:${row.ayah_number}`, row.text_source ? `${row.text_source}${row.text_version ? ' / ' + row.text_version : ''}` : row.text_version);
+      };
+      ayahSelect.onchange = showSelected;
+      showSelected();
+      if (status) status.textContent = `Database connected successfully! · ${currentSurahs.length} Surah · ${data.length} Ayat loaded for selected Surah.`;
+    }
+
+    status.textContent = 'Surah list database se load ho rahi hai...';
+    const { data, error } = await db.from('surahs')
+      .select('id,arabic_name,transliterated_name,english_name,ayah_count,revelation_type')
+      .order('id');
+    if (error) throw error;
+    if (!data || data.length !== 114) throw new Error(`Database se ${data ? data.length : 0} Surah milin; 114 ki tawaqqo thi.`);
+    currentSurahs = data;
+    surahSelect.replaceChildren();
+    data.forEach(s => {
+      const opt = document.createElement('option');
+      opt.value = String(s.id);
+      opt.textContent = `${s.id} · ${s.arabic_name} — ${s.transliterated_name || s.english_name}`;
+      surahSelect.appendChild(opt);
+    });
+    surahSelect.value = '1';
+    surahSelect.onchange = () => loadAyahs().catch(err => { display.textContent = 'Ayat load karne mein error: ' + err.message; status.textContent = 'Database error: ' + err.message; });
+    if (pill) pill.textContent = 'Live Quran database';
+    await loadAyahs();
+  } catch (err) {
+    if (status) status.textContent = 'Database error: ' + (err.message || String(err));
+    console.error('Fahm-ul-Quran Quran Explorer:', err);
+  }
+})();
+</script>
+
 </body></html>
