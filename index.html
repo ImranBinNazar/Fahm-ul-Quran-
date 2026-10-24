@@ -1,368 +1,95 @@
 <!doctype html>
-<html lang="ur" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#123b32">
-<title>فہم القرآن | Fahm-ul-Quran</title>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#123c31"><title>فہم القرآن | Fahm-ul-Quran</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Sans+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f5f7f2;--panel:#fff;--ink:#182a25;--muted:#65736d;--green:#164b3d;--green2:#216653;--gold:#c59b43;--line:#e0e7df;--soft:#eaf2ec;--shadow:0 8px 26px #18382b0d}
-body.dark{--bg:#101a17;--panel:#182520;--ink:#eaf2ed;--muted:#a6b7ad;--green:#a8d4b9;--green2:#c2e3cd;--gold:#e1bd68;--line:#304139;--soft:#22372e;--shadow:0 8px 26px #0002}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Noto Sans Arabic","Noto Naskh Arabic",sans-serif;line-height:1.7}button,input,select,textarea{font:inherit}button{cursor:pointer}.top{background:linear-gradient(125deg,#10382f,#1f604b);color:#fff;padding:22px max(18px,calc((100% - 1160px)/2));}.toprow{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}.brand{display:flex;align-items:center;gap:13px}.logo{width:48px;height:48px;border:1px solid #ffffff66;border-radius:15px;display:grid;place-items:center;font-size:27px;color:#e6c675}.brand h1{margin:0;font-size:clamp(22px,4vw,32px)}.brand p{margin:0;color:#d4e6dc;font-size:13px}.tools{display:flex;gap:8px;align-items:center}.tools button,.tools select{border:1px solid #ffffff55;background:#ffffff12;color:white;border-radius:10px;padding:8px 11px}.tools select option{color:#172a23}.hero{max-width:1160px;margin:25px auto 0;padding:0 18px 12px}.hero h2{font-size:clamp(24px,4vw,38px);line-height:1.35;margin:0 0 8px}.hero p{max-width:720px;color:#e0eee7;margin:0}.layout{max-width:1160px;margin:20px auto;padding:0 18px;display:grid;grid-template-columns:245px minmax(0,1fr);gap:20px}.sidebar,.panel,.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow)}.sidebar{padding:12px;height:max-content;position:sticky;top:12px}.navbtn{display:flex;width:100%;gap:10px;align-items:center;text-align:right;border:0;background:transparent;color:var(--ink);padding:10px 12px;border-radius:10px;margin:2px 0}.navbtn:hover,.navbtn.active{background:var(--soft);color:var(--green2);font-weight:700}.navbtn span{width:24px;text-align:center}.content{min-width:0}.panel{padding:clamp(16px,3vw,28px);margin-bottom:18px}.section-head{display:flex;justify-content:space-between;align-items:start;gap:12px;flex-wrap:wrap;margin-bottom:14px}.eyebrow{font-size:12px;color:var(--green2);font-weight:800;letter-spacing:.04em}.section-head h2{margin:2px 0 0;font-size:clamp(21px,3vw,29px)}.muted{color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.card{padding:18px}.card h3{margin:4px 0 6px}.icon{font-size:24px}.quick{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:18px}.quick .card{padding:15px}.arabic{font-family:"Noto Naskh Arabic","Amiri",serif;font-size:clamp(23px,3vw,32px);line-height:2;text-align:right}.verse{background:var(--soft);border-radius:14px;padding:18px;margin:12px 0}.pill{display:inline-block;background:var(--soft);color:var(--green2);border-radius:99px;padding:3px 10px;font-size:12px;font-weight:700}.row{display:flex;gap:9px;align-items:center;flex-wrap:wrap}.field{display:flex;flex-direction:column;gap:5px;margin:10px 0}.field label{font-weight:700;font-size:14px}.field input,.field select,.field textarea,.searchbox{width:100%;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:10px;padding:10px 12px}.field textarea{min-height:110px;resize:vertical}.btn{border:1px solid var(--line);border-radius:10px;padding:9px 14px;background:var(--panel);color:var(--ink)}.btn.primary{background:var(--green2);color:#fff;border-color:transparent}.btn.soft{background:var(--soft);color:var(--green2)}.btn:focus,input:focus,select:focus,textarea:focus{outline:2px solid var(--gold);outline-offset:1px}.notice{border-right:4px solid var(--gold);background:var(--soft);padding:12px 15px;border-radius:9px;margin:12px 0}.wordlist{display:flex;gap:10px;flex-wrap:wrap}.word{border:1px solid var(--line);border-radius:12px;padding:10px 13px;background:var(--panel);min-width:105px;text-align:center}.word .arabic{font-size:25px}.word small{display:block;color:var(--muted)}.tablewrap{overflow-x:auto}table{width:100%;border-collapse:collapse;min-width:500px}th,td{border-bottom:1px solid var(--line);padding:10px;text-align:right;vertical-align:top}th{background:var(--soft)}.hidden{display:none!important}.footer{max-width:1160px;margin:0 auto;padding:10px 18px 30px;color:var(--muted);font-size:13px}.ltr{direction:ltr;text-align:left}body.english{font-family:system-ui,sans-serif}body.english .navbtn,body.english th,body.english td{text-align:left}body.english .arabic{text-align:right}body.english .notice{border-right:0;border-left:4px solid var(--gold)}@media(max-width:800px){.layout{grid-template-columns:1fr}.sidebar{position:static;display:flex;overflow-x:auto;gap:5px;padding:8px}.navbtn{white-space:nowrap;width:auto;flex-shrink:0;padding:8px 10px}.quick{grid-template-columns:1fr 1fr}}@media(max-width:520px){.grid,.quick{grid-template-columns:1fr}.top{padding:18px}.tools{width:100%}.tools select{flex:1}.hero{margin-top:18px}}
-</style>
-</head>
-<body>
-<header class="top">
- <div class="toprow">
-  <div class="brand"><div class="logo">۞</div><div><h1 id="brandTitle">فہم القرآن</h1><p>Fahm-ul-Quran · قرآن کو سمجھنے، تحقیق کرنے اور عمل کرنے کا سفر</p></div></div>
-  <div class="tools"><select id="language" aria-label="Interface language"><option value="ur">اردو</option><option value="en">English</option><option value="ar">العربية</option></select><button id="themeBtn" type="button">◐ تھیم</button></div>
- </div>
- <div class="hero"><h2 id="heroTitle">قرآن کو سمجھیں، اس کی ساخت پر غور کریں، اور زندگی میں رہنمائی حاصل کریں۔</h2><p id="heroText">ایک تحقیقی پلیٹ فارم: آیت، ترجمہ، لفظ، روٹ، گرامر، تفسیر اور تدبر—آپس میں مربوط انداز میں۔</p></div>
-</header>
-<div class="layout">
- <nav class="sidebar" aria-label="Main navigation">
-  <button class="navbtn active" data-page="home"><span>⌂</span><b data-ur="صفحۂ اول" data-en="Home" data-ar="الرئيسية">صفحۂ اول</b></button>
-  <button class="navbtn" data-page="quran"><span>۞</span><b data-ur="Quran Explorer" data-en="Quran Explorer" data-ar="استكشاف القرآن">Quran Explorer</b></button>
-  <button class="navbtn" data-page="words"><span>🔤</span><b data-ur="لفظ بہ لفظ" data-en="Word-by-Word" data-ar="كلمة بكلمة">لفظ بہ لفظ</b></button>
-  <button class="navbtn" data-page="roots"><span>🌱</span><b data-ur="قرآنی روٹس" data-en="Quranic Roots" data-ar="الجذور القرآنية">قرآنی روٹس</b></button>
-  <button class="navbtn" data-page="grammar"><span>📚</span><b data-ur="قرآنی گرامر" data-en="Quranic Grammar" data-ar="النحو والصرف">قرآنی گرامر</b></button>
-  <button class="navbtn" data-page="tafsir"><span>📜</span><b data-ur="تفسیر" data-en="Tafsir" data-ar="التفسير">تفسیر</b></button>
-  <button class="navbtn" data-page="tadabbur"><span>💡</span><b data-ur="تدبر" data-en="Tadabbur" data-ar="التدبر">تدبر</b></button>
-  <button class="navbtn" data-page="search"><span>⌕</span><b data-ur="ایڈوانس سرچ" data-en="Advanced Search" data-ar="بحث متقدم">ایڈوانس سرچ</b></button>
-  <button class="navbtn" data-page="about"><span>ⓘ</span><b data-ur="تعارف" data-en="About" data-ar="حول الموقع">تعارف</b></button>
- </nav>
- <main class="content">
-  <section id="page-home" class="page">
-   <div class="quick">
-    <div class="card"><div class="icon">📖</div><h3 data-ur="قرآن Explorer" data-en="Quran Explorer" data-ar="استكشاف القرآن">Quran Explorer</h3><p class="muted" data-ur="آیات اور منتخب تراجم" data-en="Ayat and selected translations" data-ar="الآيات والترجمات">آیات اور منتخب تراجم</p><button class="btn soft" data-goto="quran">کھولیں / Open</button></div>
-    <div class="card"><div class="icon">🧩</div><h3 data-ur="گرامر" data-en="Grammar" data-ar="النحو والصرف">گرامر</h3><p class="muted" data-ur="صرف، نحو، اعراب اور ساخت" data-en="Sarf, Nahw, I'rab and structure" data-ar="الصرف والنحو والإعراب">صرف، نحو، اعراب اور ساخت</p><button class="btn soft" data-goto="grammar">کھولیں / Open</button></div>
-    <div class="card"><div class="icon">🌿</div><h3 data-ur="روٹس" data-en="Roots" data-ar="الجذور">روٹس</h3><p class="muted" data-ur="بنیادی لغوی تصور اور استعمال" data-en="Core lexical concept and usage" data-ar="المعنى اللغوي والاستعمال">بنیادی لغوی تصور اور استعمال</p><button class="btn soft" data-goto="roots">کھولیں / Open</button></div>
-   </div>
-   <div class="panel"><div class="section-head"><div><div class="eyebrow">FAHM-UL-QURAN</div><h2 data-ur="آج کا مرکزی نکتہ" data-en="Today's Focus" data-ar="محور اليوم">آج کا مرکزی نکتہ</h2></div><span class="pill">Research workspace</span></div><h3 data-ur="قرآن فہمی: متن، زبان، سیاق اور معتبر حوالہ" data-en="Understanding the Quran: text, language, context and reliable references" data-ar="فهم القرآن: النص واللغة والسياق والمراجع">قرآن فہمی: متن، زبان، سیاق اور معتبر حوالہ</h3><p class="muted" data-ur="یہ پلیٹ فارم آپ کی تحقیق کو منظم کرنے کے لیے تیار کیا جا رہا ہے۔ نمونہ مواد کو مستند قرآنی متن یا مکمل تحقیق نہ سمجھیں۔" data-en="This platform is a research framework. Sample material is not a substitute for verified Quran text or completed scholarship." data-ar="هذه المنصة إطار للبحث؛ المحتوى التجريبي ليس بديلاً عن النص المحقق أو البحث المكتمل.">یہ پلیٹ فارم آپ کی تحقیق کو منظم کرنے کے لیے تیار کیا جا رہا ہے۔ نمونہ مواد کو مستند قرآنی متن یا مکمل تحقیق نہ سمجھیں۔</p><div class="notice">اہم: ابھی یہ front-end prototype ہے۔ مکمل Quran database، تراجم، login اور cloud publishing اس فائل میں منسلک نہیں ہیں۔</div></div>
-   <div class="grid"><div class="card"><div class="icon">🔗</div><h3 data-ur="مربوط تحقیق" data-en="Connected research" data-ar="بحث مترابط">مربوط تحقیق</h3><p class="muted" data-ur="آیت سے لفظ، روٹ، گرامر، تفسیر اور تدبر تک ایک مربوط نظام کا ہدف۔" data-en="The goal is to connect each ayah with its words, roots, grammar, tafsir and reflection." data-ar="الهدف ربط الآية بالكلمات والجذور والنحو والتفسير والتدبر.">آیت سے لفظ، روٹ، گرامر، تفسیر اور تدبر تک ایک مربوط نظام کا ہدف۔</p></div><div class="card"><div class="icon">🛡️</div><h3 data-ur="ماخذ اور تصدیق" data-en="Sources and verification" data-ar="المصادر والتحقق">ماخذ اور تصدیق</h3><p class="muted" data-ur="ہر تحقیقی اندراج کے ساتھ ماخذ، مصنف، حوالہ اور verification status رکھا جائے گا۔" data-en="Research entries will track sources, authors, references and verification status." data-ar="ستُحفظ المصادر والمؤلفون والمراجع وحالة التحقق مع كل بحث.">ہر تحقیقی اندراج کے ساتھ ماخذ، مصنف، حوالہ اور verification status رکھا جائے گا۔</p></div></div>
-  </section>
-  <section id="page-quran" class="page hidden"><div class="panel"><div class="section-head"><div><div class="eyebrow">QURAN EXPLORER</div><h2>قرآن Explorer</h2></div><span class="pill">Demo record</span></div><div class="row"><div class="field"><label>Surah</label><select id="surahSelect"><option value="1">1 · الفاتحة Al-Fatihah</option><option value="49">49 · الحجرات Al-Hujurat</option></select></div><div class="field"><label>Ayah</label><select id="ayahSelect"><option value="1">1</option><option value="13">13</option></select></div></div><div id="ayahDisplay" class="verse"><div class="arabic">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div><p>Demo view: الفاتحة 1:1</p></div><div class="grid"><div class="card"><h3>Urdu translation</h3><select class="field" id="urduTranslation"><option>ترجمہ 1 — source to be verified</option><option>ترجمہ 2 — source to be verified</option></select><p class="muted">ترجمہ یہاں licensed source سے import ہونے کے بعد دکھایا جائے گا۔</p></div><div class="card"><h3>English translation</h3><select class="field" id="englishTranslation"><option>Translation 1 — source to be verified</option><option>Translation 2 — source to be verified</option></select><p class="muted">Translation will appear after a licensed source is imported.</p></div></div><div class="notice">یہ صرف interface demo ہے، مکمل Quran text یا verified translations کی فراہمی نہیں۔</div></div></section>
-  <section id="page-words" class="page hidden"><div class="panel"><div class="section-head"><div><div class="eyebrow">WORD-BY-WORD</div><h2>لفظ بہ لفظ</h2></div><span class="pill">Connected to Ayah</span></div><p class="muted">منتخب آیت کے ہر لفظ کا الگ معنی، root اور transliteration یہاں آئے گا۔</p><div class="wordlist"><div class="word"><div class="arabic">بِسْمِ</div><b>نام سے</b><small>bi-smi · demo</small></div><div class="word"><div class="arabic">اللَّهِ</div><b>اللہ</b><small>Allah · demo</small></div><div class="word"><div class="arabic">الرَّحْمَٰنِ</div><b>نہایت مہربان</b><small>ar-Rahman · demo</small></div><div class="word"><div class="arabic">الرَّحِيمِ</div><b>بہت رحم فرمانے والا</b><small>ar-Raheem · demo</small></div></div><div class="notice">یہ مثال تعلیمی demo ہے؛ مکمل لفظی تجزیہ مستند source سے import اور review کے بعد شامل ہوگا۔</div></div></section>
-  <section id="page-roots" class="page hidden"><div class="panel"><div class="section-head"><div><div class="eyebrow">QURANIC ROOTS</div><h2>قرآنی روٹس</h2></div></div><div class="field"><label>Root تلاش کریں</label><input id="rootInput" placeholder="مثلاً و ل ي / ع ل م"></div><button class="btn primary" id="rootSearch">تلاش کریں</button><div id="rootResult" class="verse"><div class="arabic">و ل ي</div><h3>نمونہ روٹ ریکارڈ</h3><p>لغوی مفہوم، مشتقات، ابواب اور قرآنی مقامات مستند لغات کے حوالوں کے ساتھ یہاں درج ہوں گے۔</p></div></div></section>
-  <section id="page-grammar" class="page hidden"><div class="panel"><div class="section-head"><div><div class="eyebrow">ADVANCED GRAMMAR</div><h2>قرآنی گرامر | Sarf · Nahw · I'rab</h2></div><span class="pill">Expert-level framework</span></div><p>یہ الگ Grammar section ہے، اور اس کا تعلق Quran Explorer اور Word-by-Word سے رکھا جائے گا۔</p><div class="tablewrap"><table><thead><tr><th>تجزیے کا حصہ</th><th>کیا محفوظ ہوگا؟</th><th>حوالہ / تصدیق</th></tr></thead><tbody><tr><td>صرف (Sarf)</td><td>Root، وزن، صیغہ، باب، فعل/اسم کی ساخت</td><td>لغت اور معتبر صرفی ماخذ</td></tr><tr><td>نحو (Nahw)</td><td>جملے میں لفظ کا کردار اور باہمی تعلق</td><td>نحوی ماخذ</td></tr><tr><td>اعراب (I'rab)</td><td>اعرابی حالت اور اس کی وجہ</td><td>اعرابِ قرآن کا حوالہ</td></tr><tr><td>جملے کی ساخت</td><td>Phrase parsing، clauses، ساخت اور flow</td><td>تحقیق اور verification</td></tr><tr><td>بلاغت</td><td>جہاں متعلق ہو، اسلوب اور معنوی اثر</td><td>معتبر تفسیری/بلاغی حوالہ</td></tr></tbody></table></div><div class="notice">ابھی یہ Grammar کا interface اور data schema ہے؛ ہر آیت کا مکمل grammar analysis ابھی موجود نہیں۔</div></div></section>
-  <section id="page-tafsir" class="page hidden"><div class="panel"><div class="section-head"><div><div class="eyebrow">TAFSIR</div><h2>تفسیر اور مستند حوالہ جات</h2></div></div><p>ہر اندراج میں مفسر، کتاب، edition، جلد/صفحہ، source URL، مختصر اقتباس یا خلاصہ، زبان اور publication status محفوظ ہوگا۔</p><div class="notice">حقوقِ اشاعت اور اجازت کے مطابق مواد شامل کیا جائے گا۔ یہ حصہ ابھی خالی research framework ہے۔</div></div></section>
-  <section id="page-tadabbur" class="page hidden"><div class="panel"><div class="section-head"><div><div class="eyebrow">TADABBUR</div><h2>تدبر، ساخت اور عملی سبق</h2></div></div><p>مرکزی پیغام، آیت کا سیاق، ساخت و flow، اہم نکات، عملی اسباق اور متعلقہ حوالہ جات الگ محفوظ کیے جائیں گے۔</p><div class="notice">یہاں ذاتی غوروفکر کو مستند تفسیر یا قطعی حکم سے الگ واضح کیا جائے گا۔</div></div></section>
-  <section id="page-search" class="page hidden"><div class="panel"><div class="section-head"><div><div class="eyebrow">ADVANCED SEARCH</div><h2>ایڈوانس سرچ</h2></div></div><div class="field"><label>لفظ، root، Surah، Ayah یا موضوع</label><input id="searchInput" placeholder="Search demo content…"></div><button class="btn primary" id="searchBtn">تلاش کریں</button><div id="searchResults" class="verse">یہ search ابھی صرف demo interface ہے؛ مکمل database connect ہونے کے بعد حقیقی نتائج ملیں گے۔</div></div></section>
-  <section id="page-about" class="page hidden"><div class="panel"><div class="section-head"><div><div class="eyebrow">ABOUT</div><h2>فہم القرآن کا مقصد</h2></div></div><p>مقصد قرآن کے متن، زبان، سیاق، معتبر علمی مراجع اور تدبر کو منظم انداز میں ایک جگہ جوڑنا ہے۔ تحقیق میں اصل ماخذ، نسبت اور اختلافی آراء کی درست نمائندگی اہم ہوگی۔</p><p class="muted">یہ موجودہ فائل ایک ابتدائی front-end scaffold ہے؛ اس سے مکمل Quran database، secure admin login یا cloud publishing خود بخود فعال نہیں ہوتے۔</p></div></section>
- </main>
-</div>
-<footer class="footer">فہم القرآن · تحقیق، حوالہ اور تصدیق کے ساتھ · Prototype build</footer>
+:root{--bg:#f4f7f2;--card:#fff;--ink:#17372e;--muted:#63766d;--line:#dce6dc;--green:#176b50;--gold:#c99b45;--soft:#edf3ec;--scale:1}
+*{box-sizing:border-box}html{font-size:calc(16px*var(--scale));scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans Arabic",sans-serif;line-height:1.8}.wrap{max-width:1180px;margin:auto;padding:16px}.top,.brand,.tools,.actions,.nav,.head,.meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:space-between}.brand{justify-content:flex-start}.logo{display:grid;place-items:center;background:var(--green);color:white;width:48px;height:48px;border-radius:15px;font-size:25px}.brand h1{font-size:1.12rem;margin:0}.brand p{font-size:.8rem;color:var(--muted);margin:0}.btn,select,input,textarea{font:inherit;border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--card);color:var(--ink);max-width:100%}.btn{cursor:pointer}.btn:hover{border-color:var(--gold)}.primary{background:var(--green);color:#fff;border-color:var(--green)}.nav{justify-content:flex-start;overflow:auto;padding:15px 0}.nav button{white-space:nowrap}.nav button.active{background:var(--green);color:white}.hero{padding:clamp(25px,5vw,55px);border-radius:26px;color:white;background:radial-gradient(circle at 10% 10%,#d6b66c44,transparent 30%),linear-gradient(125deg,#0b3f31,#247859);box-shadow:0 14px 38px #17372e16}.hero h2{font-size:clamp(1.8rem,4vw,3rem);line-height:1.4;margin:8px 0}.hero p{max-width:750px;color:#e3eee8}.hero .btn{color:var(--green)}.eyebrow{color:#f0d491;font-weight:bold}.section{display:none}.section.active{display:block;animation:appear .2s}@keyframes appear{from{opacity:.6;transform:translateY(4px)}to{opacity:1;transform:none}}.head{margin:22px 0 14px}.head h2{margin:0}.muted{color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:15px}.card{background:var(--card);border:1px solid var(--line);border-radius:19px;padding:19px;box-shadow:0 8px 25px #17372e09;min-width:0}.s4{grid-column:span 4}.s5{grid-column:span 5}.s7{grid-column:span 7}.s8{grid-column:span 8}.s12{grid-column:span 12}.field{display:grid;gap:5px;margin-bottom:12px}.field label{font-weight:bold;font-size:.9rem}.field input,.field select,.field textarea{width:100%}textarea{min-height:95px;resize:vertical}.status,.notice{padding:11px 13px;border-radius:12px;background:var(--soft);margin:10px 0;font-size:.9rem;white-space:pre-wrap}.error{background:#fff0ef;color:#a33a37}.notice{background:#f8f0dd;border-right:4px solid var(--gold);color:#57451f}.arabic{font-family:"Amiri",serif;font-size:1.9rem;line-height:2.2;text-align:center}.ayah{background:linear-gradient(140deg,var(--card),var(--soft));border:1px solid var(--line);border-radius:16px;padding:22px}.meta{font-size:.82rem;color:var(--muted)}.list{display:grid;gap:10px;margin-top:12px}.item{border:1px solid var(--line);border-radius:13px;padding:13px;overflow-wrap:anywhere}.empty{text-align:center;padding:24px;border:1px dashed var(--line);border-radius:13px;color:var(--muted)}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:15px}.stat{background:var(--soft);padding:12px;border-radius:13px}.stat strong{display:block;color:var(--green);font-size:1.3rem}.stat span{font-size:.78rem;color:var(--muted)}.hidden{display:none!important}.tablewrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:500px}td,th{padding:9px;border-bottom:1px solid var(--line);text-align:right;font-size:.85rem}.footer{margin-top:28px;padding:20px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}body.dark{--bg:#101b17;--card:#17251f;--ink:#e6eee8;--muted:#a9bbb0;--line:#30463a;--green:#6ac29a;--soft:#20332a}body.dark .hero{background:linear-gradient(125deg,#102e25,#16523e)}body.dark .notice{background:#3b3322;color:#f1dfb3}@media(max-width:800px){.s4,.s5,.s7,.s8{grid-column:span 12}}@media(max-width:550px){.wrap{padding:10px}.card{padding:15px}.tools{justify-content:flex-start}.hero{border-radius:20px}.grid{gap:10px}}
+</style></head><body><div class="wrap">
+<header class="top"><a class="brand" href="#" data-go="home"><div class="logo">۞</div><div><h1>Fahm-ul-Quran</h1><p>Study · Research · Reflection</p></div></a><div class="tools"><select id="language" aria-label="Language"><option value="en">English</option><option value="ur">اردو</option><option value="ar">العربية</option></select><button class="btn" id="smaller">A−</button><button class="btn" id="bigger">A+</button><button class="btn" id="theme">☾</button></div></header>
+<nav class="nav" id="nav"></nav><main>
+<section class="section active" id="home"><div class="hero"><div class="eyebrow">A structured journey to understand the Quran</div><h2>Understand the Quran, reflect deeply, and share knowledge responsibly.</h2><p>Explore ayahs, word-by-word study, Quranic roots, grammar, tafsir, and tadabbur in one place. Keep sources and verification status clear.</p><div class="actions"><button class="btn" data-go="explorer">قرآن ایکسپلورر</button><button class="btn" data-go="roots">روٹس کا مطالعہ</button><button class="btn" data-go="admin">تحقیقی ڈیش بورڈ</button></div><p class="muted">اہم اصول: غیر مصدقہ مواد کو حتمی تفسیر یا مستند ترجمہ بنا کر پیش نہ کریں۔</p></div><div class="grid" style="margin-top:15px"><article class="card s4"><h3>قرآن ایکسپلورر</h3><p class="muted">سورۃ، آیت، عربی متن اور دستیاب تراجم۔</p><button class="btn primary" data-go="explorer">کھولیں</button></article><article class="card s4"><h3>لفظ، روٹ اور گرامر</h3><p class="muted">لفظی تحقیق اور صرفی و نحوی نوٹس۔</p><button class="btn" data-go="words">لفظ بہ لفظ</button> <button class="btn" data-go="grammar">گرامر</button></article><article class="card s4"><h3>تفسیر اور تدبّر</h3><p class="muted">ماخذ اور حیثیت واضح رکھیں۔</p><button class="btn" data-go="tafsir">تفسیر</button> <button class="btn" data-go="tadabbur">تدبّر</button></article><article class="card s12"><h3>ڈیٹا بیس کی کیفیت</h3><p class="muted">یہ ویب ایپ Supabase سے ڈیٹا پڑھتی ہے۔ کوئی ترجمہ یا تفسیر خود سے گھڑ کر نہیں دکھائی جاتی۔</p><div class="stats"><div class="stat"><strong id="surahCount">—</strong><span>سورتیں</span></div><div class="stat"><strong id="connection">جانچ جاری</strong><span>رابطہ</span></div><div class="stat"><strong id="ayahCount">—</strong><span>منتخب آیت</span></div></div><div class="status" id="homeStatus">Supabase سے رابطہ چیک ہو رہا ہے…</div></article></div></section>
+<section class="section" id="explorer"><div class="head"><div><h2>قرآن ایکسپلورر</h2><p class="muted">سورۃ اور آیت منتخب کریں۔</p></div></div><div class="grid"><article class="card s4"><div class="field"><label>سورۃ</label><select id="surah"></select></div><div class="field"><label>آیت نمبر</label><select id="ayah"></select></div><div class="actions"><button class="btn primary" id="showAyah">آیت دکھائیں</button><button class="btn" id="copyAyah">کاپی</button></div><div class="status" id="explorerStatus">سورۃ منتخب کریں۔</div></article><article class="card s8"><div class="ayah"><div class="meta"><span id="reference">آیت منتخب نہیں</span><span id="source">ماخذ نامعلوم</span></div><div class="arabic" id="arabic">آیت کا متن یہاں ظاہر ہوگا</div><div id="translations" class="list"></div></div><div class="grid" style="margin-top:12px"><article class="card s5"><h3>تفسیر</h3><div id="ayahTafsir" class="muted">شائع شدہ مواد موجود ہو تو یہاں دکھے گا۔</div></article><article class="card s7"><h3>تدبّر</h3><div id="ayahTadabbur" class="muted">شائع شدہ مواد موجود ہو تو یہاں دکھے گا۔</div></article></div></article></div></section>
+<section class="section" id="words"><div class="head"><h2>لفظ بہ لفظ</h2></div><div class="grid"><article class="card s4"><div class="field"><label>سورۃ</label><select id="wordSurah"></select></div><div class="field"><label>آیت نمبر</label><input id="wordAyah" type="number" min="1" value="1"></div><button class="btn primary" id="loadWords">الفاظ دکھائیں</button><div class="status" id="wordsStatus"></div></article><article class="card s8"><div id="wordsResults" class="empty">آیت منتخب کریں۔</div></article></div></section>
+<section class="section" id="roots"><div class="head"><h2>قرآنی روٹس</h2></div><div class="grid"><article class="card s4"><div class="field"><label>روٹ تلاش کریں</label><input id="rootSearch" placeholder="مثلاً: ولي، ضلل، ذكر"></div><button class="btn primary" id="searchRoots">تلاش</button><div class="notice">مادّہ کا بنیادی مفہوم اور کسی خاص آیت میں سیاقی مفہوم الگ ہو سکتے ہیں۔</div></article><article class="card s8"><div id="rootsResults" class="empty">عربی روٹ درج کریں۔</div></article></div></section>
+<section class="section" id="grammar"><div class="head"><h2>صرف و نحو</h2></div><div class="grid"><article class="card s4"><div class="field"><label>سورۃ</label><select id="grammarSurah"></select></div><div class="field"><label>آیت نمبر</label><input id="grammarAyah" type="number" min="1" value="1"></div><button class="btn primary" id="loadGrammar">نوٹس دکھائیں</button><div class="status" id="grammarStatus"></div></article><article class="card s8"><div id="grammarResults" class="empty">آیت منتخب کریں۔</div></article></div></section>
+<section class="section" id="tafsir"><div class="head"><h2>تفسیر</h2></div><div class="card"><div class="grid"><div class="s5 field"><label>سورۃ</label><select id="tafsirSurah"></select></div><div class="s5 field"><label>آیت نمبر</label><input id="tafsirAyah" type="number" min="1" value="1"></div></div><button class="btn primary" id="loadTafsir">تلاش</button><div class="status" id="tafsirStatus"></div><div id="tafsirResults" class="list"></div></div></section>
+<section class="section" id="tadabbur"><div class="head"><h2>تدبّر</h2></div><div class="card"><div class="grid"><div class="s5 field"><label>سورۃ</label><select id="tadabburSurah"></select></div><div class="s5 field"><label>آیت نمبر</label><input id="tadabburAyah" type="number" min="1" value="1"></div></div><button class="btn primary" id="loadTadabbur">تلاش</button><div class="status" id="tadabburStatus"></div><div id="tadabburResults" class="list"></div></div></section>
+<section class="section" id="search"><div class="head"><h2>ایڈوانسڈ سرچ</h2></div><div class="card"><div class="field"><label>عربی لفظ یا روٹ</label><input id="globalSearch" placeholder="تلاش درج کریں"></div><button class="btn primary" id="runSearch">تلاش</button><div id="globalResults" class="list"><div class="empty">تلاش درج کریں۔</div></div></div></section>
+<section class="section" id="admin"><div class="head"><div><h2>تحقیقی ڈیش بورڈ</h2><p class="muted">صرف مجاز admin اکاؤنٹ کے لیے۔</p></div></div><div class="grid"><article class="card s4" id="loginCard"><h3>محفوظ لاگ اِن</h3><form id="loginForm"><div class="field"><label>ای میل</label><input id="email" type="email" autocomplete="username" required></div><div class="field"><label>پاس ورڈ</label><input id="password" type="password" autocomplete="current-password" required></div><button class="btn primary">لاگ اِن</button></form><div id="loginStatus" class="status">ابھی لاگ اِن نہیں ہیں۔</div></article><article class="card s8"><div class="actions"><h3>مواد کا انتظام</h3><button class="btn" id="logout">لاگ آؤٹ</button></div><div id="adminStatus" class="status">لاگ اِن کے بعد فعال ہوگا۔</div><div id="adminTools" class="hidden"><div class="field"><label>ٹیبل</label><select id="adminTable"><option value="quranic_roots">قرآنی روٹس</option><option value="tadabbur_entries">تدبّر</option><option value="ayah_words">لفظ بہ لفظ</option><option value="grammar_notes">گرامر نوٹس</option><option value="tafsir_entries">تفسیر</option><option value="ayah_translations">Ayah translations</option><option value="translations">Translation catalogue</option><option value="research_sources">Research sources</option></select></div><div class="field"><label>ریکارڈ ID (ترمیم/حذف)</label><input id="recordId" type="number" min="1"></div><div id="adminFields"></div><div class="actions"><button class="btn primary" id="save">محفوظ کریں</button><button class="btn" id="clearForm">نیا ریکارڈ</button><button class="btn" id="loadRecords">ریکارڈز دکھائیں</button><button class="btn" id="delete">حذف</button></div><div class="notice">آپ کے Supabase ٹیبل کے کالم اس فارم سے مختلف ہوں تو save error آئے گا۔ اصل schema کی تصدیق کے بغیر کالم فرض نہیں کیے جا سکتے۔</div><div id="records" class="list"></div></div></article></div></section>
+<section class="section" id="about"><div class="head"><h2>تعارف اور اصول</h2></div><div class="grid"><article class="card s7"><h3>مقصد</h3><p>عربی متن، ترجمہ، مادّہ، صرف و نحو، تفسیر، تدبّر اور ماخذ کو منظم طریقے سے مربوط کرنا۔ تحقیق اور تصدیق انسانی ذمہ داری ہے۔</p><h3>تحقیقی اصول</h3><ul><li>قرآنی متن کو بغیر تصدیق تبدیل نہ کریں۔</li><li>مترجم، کتاب، ناشر اور لائسنس درج کریں۔</li><li>تفسیر اور تدبّر کو الگ رکھیں۔</li><li>Draft، Review اور Published حیثیتیں واضح رکھیں۔</li></ul></article><article class="card s5"><h3>ٹیکنالوجی</h3><p>Frontend: GitHub Pages؛ database/auth: Supabase۔ Publishable key frontend میں استعمال ہو سکتی ہے، مگر service-role key کبھی HTML یا GitHub میں نہ رکھیں۔ RLS فعال رکھیں۔</p></article></div></section>
+</main><footer class="footer">فہم القرآن · علم، تحقیق اور تدبّر کی امانت</footer></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-const pages=[...document.querySelectorAll('.page')], nav=[...document.querySelectorAll('.navbtn')];
-function gotoPage(name){pages.forEach(p=>p.classList.toggle('hidden',p.id!=='page-'+name));nav.forEach(b=>b.classList.toggle('active',b.dataset.page===name));window.scrollTo({top:0,behavior:'smooth'});}
-nav.forEach(b=>b.addEventListener('click',()=>gotoPage(b.dataset.page)));
-document.querySelectorAll('[data-goto]').forEach(b=>b.addEventListener('click',()=>gotoPage(b.dataset.goto)));
-document.getElementById('themeBtn').addEventListener('click',()=>{document.body.classList.toggle('dark');});
-const translations={
-ur:{heroTitle:'قرآن کو سمجھیں، اس کی ساخت پر غور کریں، اور زندگی میں رہنمائی حاصل کریں۔',heroText:'ایک تحقیقی پلیٹ فارم: آیت، ترجمہ، لفظ، روٹ، گرامر، تفسیر اور تدبر—آپس میں مربوط انداز میں۔',theme:'◐ تھیم'},
-en:{heroTitle:'Understand the Quran, reflect on its structure, and seek guidance for life.',heroText:'A research platform connecting ayat, translations, words, roots, grammar, tafsir and tadabbur.',theme:'◐ Theme'},
-ar:{heroTitle:'افهم القرآن، وتأمل بنيته، واستمد منه الهداية للحياة.',heroText:'منصة بحثية تربط الآيات والترجمات والكلمات والجذور والنحو والتفسير والتدبر.',theme:'◐ المظهر'}
+(()=>{'use strict';
+const URL='https://belzexyabeiaupbaxtbc.supabase.co',KEY='sb_publishable_ggXNjHf0n8bdkY12f1wtJw_KN4FqBPK';
+const $=id=>document.getElementById(id), esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const sections=['home','explorer','words','roots','grammar','tafsir','tadabbur','search','admin','about'],labels=['ہوم','قرآن ایکسپلورر','لفظ بہ لفظ','روٹس','صرف و نحو','تفسیر','تدبّر','سرچ','ایڈمن','تعارف'];
+const nav=$('nav');
+const I18N={
+ en:{dir:'ltr',title:'Fahm-ul-Quran',nav:['Home','Quran Explorer','Word by Word','Quranic Roots','Grammar','Tafsir','Tadabbur','Search','Admin','About'],
+ homeEyebrow:'A structured journey to understand the Quran',hero:'Understand the Quran, reflect deeply, and share knowledge responsibly.',heroText:'A connected workspace for ayat, word-by-word study, Quranic roots, grammar, tafsir and tadabbur. Keep sources and verification status clear.',principle:'Important: Do not present unverified material as authoritative translation or tafsir.',explorer:'Quran Explorer',surahAyah:'Choose a surah and ayah.',surah:'Surah',ayah:'Ayah number',showAyah:'Show ayah',copy:'Copy',selectSurah:'Select a surah',firstAyah:'Select a surah first',loadWords:'Show words',search:'Search',statusChecking:'Checking Supabase connection…',dbStatus:'Database status',surahs:'Surahs',selectedAyah:'Selected ayah',login:'Sign in',logout:'Sign out',save:'Save',newRecord:'New record',loadRecords:'Load records',delete:'Delete',about:'About Fahm-ul-Quran',footer:'Fahm-ul-Quran · Study, research and reflection with sources and verification.'},
+ ur:{dir:'rtl',title:'فہم القرآن',nav:['صفحۂ اول','قرآن ایکسپلورر','لفظ بہ لفظ','قرآنی روٹس','صرف و نحو','تفسیر','تدبّر','سرچ','ایڈمن','تعارف'],homeEyebrow:'قرآن فہمی کا ایک منظم سفر',hero:'قرآن کو سمجھیں، غور کریں، اور علم کو امانت کے ساتھ آگے بڑھائیں۔',heroText:'آیات، لفظ بہ لفظ تحقیق، قرآنی روٹس، صرف و نحو، تفسیر اور تدبّر کے لیے ایک جگہ۔',principle:'اہم اصول: غیر مصدقہ مواد کو حتمی تفسیر یا مستند ترجمہ بنا کر پیش نہ کریں۔',explorer:'قرآن ایکسپلورر',surahAyah:'سورۃ اور آیت منتخب کریں۔',surah:'سورۃ',ayah:'آیت نمبر',showAyah:'آیت دکھائیں',copy:'کاپی',selectSurah:'سورۃ منتخب کریں',firstAyah:'پہلے سورۃ منتخب کریں',loadWords:'الفاظ دکھائیں',search:'تلاش',statusChecking:'Supabase سے رابطہ چیک ہو رہا ہے…',dbStatus:'ڈیٹا بیس کی کیفیت',surahs:'سورتیں',selectedAyah:'منتخب آیت',login:'لاگ اِن',logout:'لاگ آؤٹ',save:'محفوظ کریں',newRecord:'نیا ریکارڈ',loadRecords:'ریکارڈز دکھائیں',delete:'حذف',about:'فہم القرآن کا تعارف',footer:'فہم القرآن · تحقیق، حوالہ اور تصدیق کے ساتھ۔'},
+ ar:{dir:'rtl',title:'فهم القرآن',nav:['الرئيسية','استكشاف القرآن','كلمة بكلمة','الجذور القرآنية','النحو والصرف','التفسير','التدبر','البحث','الإدارة','حول الموقع'],homeEyebrow:'رحلة منظمة لفهم القرآن',hero:'افهم القرآن، وتدبّر معانيه، وانقل العلم بأمانة.',heroText:'مساحة مترابطة للآيات ودراسة الكلمات والجذور والنحو والتفسير والتدبر مع توثيق المصادر وحالة المراجعة.',principle:'تنبيه: لا تعرض المواد غير الموثقة بوصفها ترجمة أو تفسيراً معتمداً.',explorer:'استكشاف القرآن',surahAyah:'اختر السورة والآية.',surah:'السورة',ayah:'رقم الآية',showAyah:'عرض الآية',copy:'نسخ',selectSurah:'اختر سورة',firstAyah:'اختر السورة أولاً',loadWords:'عرض الكلمات',search:'بحث',statusChecking:'جارٍ التحقق من الاتصال بقاعدة البيانات…',dbStatus:'حالة قاعدة البيانات',surahs:'السور',selectedAyah:'الآية المحددة',login:'تسجيل الدخول',logout:'تسجيل الخروج',save:'حفظ',newRecord:'سجل جديد',loadRecords:'تحميل السجلات',delete:'حذف',about:'حول فهم القرآن',footer:'فهم القرآن · دراسة وبحث وتدبر مع المصادر والتحقق.'}
 };
-document.getElementById('language').addEventListener('change',e=>{
- const lang=e.target.value;document.documentElement.lang=lang;document.documentElement.dir=lang==='en'?'ltr':'rtl';document.body.classList.toggle('english',lang==='en');
- document.getElementById('heroTitle').textContent=translations[lang].heroTitle;document.getElementById('heroText').textContent=translations[lang].heroText;document.getElementById('themeBtn').textContent=translations[lang].theme;
- document.querySelectorAll('[data-'+lang+']').forEach(el=>el.textContent=el.getAttribute('data-'+lang));
-});
-document.getElementById('rootSearch').addEventListener('click',()=>{const v=document.getElementById('rootInput').value.trim();document.getElementById('rootResult').innerHTML='<h3>Search request</h3><p>آپ نے <b></b> تلاش کیا ہے۔ حقیقی نتائج database connect ہونے کے بعد دکھائے جائیں گے۔</p>'.replace('<b></b>','<b>'+escapeHtml(v||'کوئی root نہیں دیا')+'</b>');});
-document.getElementById('searchBtn').addEventListener('click',()=>{const v=document.getElementById('searchInput').value.trim();document.getElementById('searchResults').textContent=v?'“'+v+'” کے لیے حقیقی نتائج database connect ہونے کے بعد دکھائے جائیں گے۔':'تلاش کے لیے کوئی لفظ یا موضوع لکھیں۔';});
-document.getElementById('surahSelect').addEventListener('change',e=>{const s=e.target.value, a=document.getElementById('ayahSelect');a.innerHTML=s==='1'?'<option value="1">1</option>':'<option value="13">13</option>';updateAyah();});
-document.getElementById('ayahSelect').addEventListener('change',updateAyah);
-function updateAyah(){const s=document.getElementById('surahSelect').value,a=document.getElementById('ayahSelect').value;const d=document.getElementById('ayahDisplay');if(s==='1'&&a==='1')d.innerHTML='<div class="arabic">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div><p>الفاتحة 1:1 · demo record</p>';else d.innerHTML='<div class="arabic">يَا أَيُّهَا النَّاسُ إِنَّا خَلَقْنَاكُم مِّن ذَكَرٍ وَأُنثَىٰ</div><p>الحجرات 49:13 · abbreviated demo excerpt; not full ayah</p>';}
-function escapeHtml(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
-</script>
-<!-- Fahm-ul-Quran database connection -->
-<div id="fahm-db-status"
-     style="padding:8px;font-size:14px;overflow-wrap:anywhere;">
-  Database connection shuru ho raha hai...
-</div>
-
-<script>
-(function () {
-  const status = document.getElementById('fahm-db-status');
-
-  const SUPABASE_URL = 'https://belzexyabeiaupbaxtbc.supabase.co';
-  const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_ggXNjHf0n8bdkY12f1wtJw_KN4FqBPK';
-
-  function showError(message) {
-    status.textContent = 'Database error: ' + message;
-    console.error('Fahm-ul-Quran:', message);
-  }
-
-  function loadSupabase() {
-    return new Promise((resolve, reject) => {
-      if (window.supabase && window.supabase.createClient) {
-        resolve();
-        return;
-      }
-
-      const script = document.createElement('script');
-      script.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2';
-      script.onload = resolve;
-      script.onerror = () => reject(
-        new Error('Supabase library load nahi hui. Internet ya CDN check karein.')
-      );
-
-      document.head.appendChild(script);
-
-      setTimeout(() => {
-        if (!(window.supabase && window.supabase.createClient)) {
-          reject(new Error('Supabase library load hone mein timeout.'));
-        }
-      }, 12000);
-    });
-  }
-
-  async function connectDatabase() {
-    try {
-      status.textContent = 'Supabase library load ho rahi hai...';
-
-      if (
-        SUPABASE_URL.includes('APNA_ASLI') ||
-        SUPABASE_PUBLISHABLE_KEY.includes('APNI_ASLI')
-      ) {
-        throw new Error('Project URL ya Publishable Key abhi placeholder hai.');
-      }
-
-      await loadSupabase();
-
-      status.textContent = 'Database se rabta kiya ja raha hai...';
-
-      window.fahmSupabase = window.supabase.createClient(
-        SUPABASE_URL,
-        SUPABASE_PUBLISHABLE_KEY
-      );
-      const client = window.fahmSupabase;
-
-      const result = await Promise.race([
-        client.from('surahs').select('*').limit(1),
-        new Promise((_, reject) =>
-          setTimeout(
-            () => reject(new Error('Database request mein 15 seconds se zyada lage.')),
-            15000
-          )
-        )
-      ]);
-
-      if (result.error) {
-        throw new Error(result.error.message);
-      }
-
-      status.textContent = 'Database connected successfully!';
-      console.log('Fahm-ul-Quran database connected:', result.data);
-    } catch (error) {
-      showError(error.message || 'Unknown connection error');
-    }
-  }
-
-  connectDatabase();
+function applyLanguage(code){
+ const L=I18N[code]||I18N.en, rtl=L.dir==='rtl';
+ document.documentElement.lang=code;document.documentElement.dir=L.dir;document.body.style.direction=L.dir;document.title=L.title;
+ nav.querySelectorAll('button').forEach((b,i)=>b.textContent=L.nav[i]||I18N.en.nav[i]);
+ const set=(selector,value)=>{const e=document.querySelector(selector);if(e&&value)e.textContent=value};
+ set('.hero .eyebrow',L.homeEyebrow);set('.hero h2',L.hero);set('.hero>p',L.heroText);set('.hero .muted',L.principle);
+ document.querySelectorAll('[data-go="explorer"]').forEach(b=>b.textContent=L.explorer);
+ set('#explorer .head h2',L.explorer);set('#explorer .head p',L.surahAyah);
+ set('#showAyah',L.showAyah);set('#copyAyah',L.copy);set('#loadWords',L.loadWords);set('#searchRoots',L.search);set('#runSearch',L.search);set('#save',L.save);set('#clearForm',L.newRecord);set('#loadRecords',L.loadRecords);set('#delete',L.delete);set('#logout',L.logout);set('.footer',L.footer);
+ const words={en:{'سورۃ':'Surah','آیت نمبر':'Ayah number','روٹ تلاش کریں':'Search root','آیت دکھائیں':'Show ayah','کاپی':'Copy','الفاظ دکھائیں':'Show words','نوٹس دکھائیں':'Show notes','شائع شدہ مواد موجود نہیں۔':'No published content available.','لاگ اِن':'Sign in','ای میل':'Email','پاس ورڈ':'Password','محفوظ کریں':'Save','حذف':'Delete','تلاش':'Search','تحقیقی ڈیش بورڈ':'Research dashboard','تفسیر':'Tafsir','تدبّر':'Tadabbur','قرآنی روٹس':'Quranic roots','لفظ بہ لفظ':'Word by word','صرف و نحو':'Grammar','تعارف':'About'},ur:{},ar:{'سورۃ':'السورة','آیت نمبر':'رقم الآية','روٹ تلاش کریں':'ابحث عن الجذر','آیت دکھائیں':'عرض الآية','کاپی':'نسخ','الفاظ دکھائیں':'عرض الكلمات','نوٹس دکھائیں':'عرض الملاحظات','لاگ اِن':'تسجيل الدخول','ای میل':'البريد الإلكتروني','پاس ورڈ':'كلمة المرور','محفوظ کریں':'حفظ','حذف':'حذف','تلاش':'بحث','تحقیقی ڈیش بورڈ':'لوحة البحث','تفسیر':'التفسير','تدبّر':'التدبر','قرآنی روٹس':'الجذور القرآنية','لفظ بہ لفظ':'كلمة بكلمة','صرف و نحو':'النحو والصرف','تعارف':'حول الموقع'}};
+ const map=words[code]||{};
+ document.querySelectorAll('label,h2,h3,p,button,.notice,.empty,.status').forEach(el=>{if(el.children.length===0){let t=el.textContent.trim();if(map[t])el.textContent=map[t];}});
+ document.querySelectorAll('label').forEach(e=>{const t=e.textContent.trim();if(t==='سورۃ')e.textContent=L.surah;if(t==='آیت نمبر')e.textContent=L.ayah;});
+ document.querySelectorAll('.stat span').forEach((e,i)=>e.textContent=[L.surahs,code==='en'?'Connection':code==='ar'?'الاتصال':'رابط',L.selectedAyah][i]);
+ document.querySelectorAll('select').forEach(el=>{if(el.options.length&&el.options[0].value===''&&['surah','wordSurah','grammarSurah','tafsirSurah','tadabburSurah'].includes(el.id))el.options[0].textContent=L.selectSurah;});
+ localStorage.fqlang=code;
+ if(surahs.length){['surah','wordSurah','grammarSurah','tafsirSurah','tadabburSurah'].forEach(id=>{const el=$(id),old=el.value;if(el){opts(el);if(old)el.value=old;}})}
+}
+sections.forEach((id,i)=>{let b=document.createElement('button');b.className='btn';b.textContent=labels[i];b.dataset.go=id;b.onclick=()=>go(id);nav.append(b)});
+function go(id){document.querySelectorAll('.section').forEach(s=>s.classList.toggle('active',s.id===id));nav.querySelectorAll('button').forEach(b=>b.classList.toggle('active',b.dataset.go===id));scrollTo({top:0,behavior:'smooth'})}
+document.addEventListener('click',e=>{let b=e.target.closest('[data-go]');if(b)go(b.dataset.go)});
+const st=(id,msg,err=false)=>{let e=$(id);if(e){e.textContent=msg;e.classList.toggle('error',err)}};
+let db=null,surahs=[],current=null,session=null,admin=false,records=[];
+const opts=(el)=>{const lang=$('language')?.value||'en';el.innerHTML=`<option value="">${lang==='en'?'Select a surah':lang==='ar'?'اختر سورة':'سورۃ منتخب کریں'}</option>`+surahs.map(s=>`<option value="${s.id}">${s.id}. ${esc(lang==='en'?(s.transliterated_name||s.english_name||s.arabic_name||'') : lang==='ar'?(s.arabic_name||s.transliterated_name||''):(s.arabic_name||s.transliterated_name||''))}</option>`).join('')};
+async function init(){if(localStorage.fqtheme==='dark')document.body.classList.add('dark');document.documentElement.style.setProperty('--scale',localStorage.fqscale||1);$('language').value=localStorage.fqlang||'en';applyLanguage($('language').value);$('theme').onclick=()=>{document.body.classList.toggle('dark');localStorage.fqtheme=document.body.classList.contains('dark')?'dark':'light'};$('smaller').onclick=()=>scale(-.05);$('bigger').onclick=()=>scale(.05);$('language').onchange=e=>applyLanguage(e.target.value);
+if(!window.supabase){st('homeStatus','Supabase library did not load. Check your internet connection or CDN access.',true);$('connection').textContent='Unavailable';return}db=window.supabase.createClient(URL,KEY);let {data,error}=await db.from('surahs').select('id,arabic_name,transliterated_name,english_name').order('id');if(error){st('homeStatus','Supabase connection failed: '+error.message,true);$('connection').textContent='Failed';return}surahs=data||[];['surah','wordSurah','grammarSurah','tafsirSurah','tadabburSurah'].forEach(id=>opts($(id)));$('surahCount').textContent=surahs.length;$('connection').textContent=$('language').value==='en'?'Connected':$('language').value==='ar'?'متصل':'منسلک';st('homeStatus',$('language').value==='en'?`${surahs.length} surahs loaded successfully.`:$('language').value==='ar'?`تم تحميل ${surahs.length} سورة بنجاح.`:`${surahs.length} سورتوں کا ریکارڈ کامیابی سے پڑھا گیا۔`);$('surah').onchange=loadAyahList;if(surahs.length){$('surah').value=String(surahs[0].id);await loadAyahList();if($('ayah').options.length){$('ayah').value=$('ayah').options[0].value;await showAyah();}}let s=await db.auth.getSession();session=s.data?.session;if(session)await verify();}
+function scale(d){let n=parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--scale'))||1;n=Math.max(.85,Math.min(1.2,Math.round((n+d)*100)/100));document.documentElement.style.setProperty('--scale',n);localStorage.fqscale=n}
+async function loadAyahList(){let id=+$('surah').value;if(!id){$('ayah').innerHTML='<option value="">'+( $('language').value==='ur'?'پہلے سورۃ منتخب کریں':$('language').value==='ar'?'اختر السورة أولاً':'Select a surah first')+'</option>';return}st('explorerStatus','Loading ayahs…');try{let {data,error}=await db.from('ayahs').select('ayah_number').eq('surah_id',id).order('ayah_number');if(error)throw error;const rows=data||[];$('ayah').innerHTML=rows.map(a=>`<option value="${a.ayah_number}">${a.ayah_number}</option>`).join('');if(!rows.length){$('arabic').textContent='No ayahs found for this surah.';return st('explorerStatus','No ayahs were returned for this surah.',true)}$('ayah').value=String(rows[0].ayah_number);await showAyah()}catch(e){st('explorerStatus','Could not load ayahs: '+(e.message||e),true)}}
+async function getAyah(sid,num){let {data,error}=await db.from('ayahs').select('id,surah_id,ayah_number,arabic_text,text_source').eq('surah_id',sid).eq('ayah_number',num).maybeSingle();if(error)throw error;if(!data)throw Error('Ayah not found in the database.');return data}
+async function showAyah(){let sid=+$('surah').value,num=+$('ayah').value;if(!sid||!num)return st('explorerStatus',$('language').value==='ur'?'سورۃ اور آیت منتخب کریں۔':$('language').value==='ar'?'اختر السورة والآية':'Select a surah and ayah.',true);try{current=await getAyah(sid,num);let s=surahs.find(x=>x.id===sid);$('reference').textContent=`${s?.arabic_name||s?.english_name||'سورۃ'} · آیت ${num}`;$('source').textContent=current.text_source||'ماخذ درج نہیں';$('arabic').textContent=current.arabic_text||'متن موجود نہیں';$('ayahCount').textContent=`${sid}:${num}`;await Promise.all([translations(current.id),displayPublished('tafsir_entries',current.id,'ayahTafsir'),displayPublished('tadabbur_entries',current.id,'ayahTadabbur')]);st('explorerStatus',$('language').value==='ur'?'آیت لوڈ ہوگئی۔':$('language').value==='ar'?'تم تحميل الآية.':'Ayah loaded.')}catch(e){st('explorerStatus',e.message,true)}}
+async function translations(id){let {data,error}=await db.from('ayah_translations').select('translation_text,translations(language_code,translator_name,title,is_enabled)').eq('ayah_id',id).eq('content_status','published');let rows=(data||[]).filter(r=>r.translations?.is_enabled);const lang=$('language').value;const empty=lang==='en'?'No enabled, published translation is available for this ayah.':lang==='ar'?'لا توجد ترجمة منشورة ومفعّلة لهذه الآية.':'اس آیت کا فعال، شائع شدہ ترجمہ ڈیٹا بیس میں موجود نہیں۔';$('translations').innerHTML=error?`<div class="item">${esc(error.message)}</div>`:rows.length?rows.map(r=>`<div class="item"><strong>${esc(r.translations.title||r.translations.language_code)} · ${esc(r.translations.translator_name||'')}</strong><p>${esc(r.translation_text)}</p></div>`).join(''):`<div class="notice">${empty}</div>`}
+async function displayPublished(table,id,target){let {data,error}=await db.from(table).select('*').eq('ayah_id',id).eq('content_status','published').limit(10);const lang=$('language').value;const empty=lang==='en'?'No published entry is available.':lang==='ar'?'لا توجد مادة منشورة.':'شائع شدہ اندراج موجود نہیں۔';$(target).innerHTML=error?esc(error.message):data?.length?data.map(r=>`<div class="item">${Object.entries(r).filter(([k,v])=>v&&!['id','ayah_id','created_by','verified_by'].includes(k)).map(([k,v])=>`<p><b>${esc(k.replaceAll('_',' '))}:</b> ${esc(v)}</p>`).join('')}</div>`).join(''):`<p class="muted">${empty}</p>`}
+$('showAyah').onclick=showAyah;$('ayah').onchange=showAyah;$('copyAyah').onclick=async()=>{if(!current)return st('explorerStatus','پہلے آیت لوڈ کریں۔',true);try{await navigator.clipboard.writeText(current.arabic_text);st('explorerStatus','متن کاپی ہوگیا۔')}catch{st('explorerStatus','متن کو دیر تک دبا کر کاپی کریں۔',true)}};
+async function verseTask(section,table,statusId,resultId){let sid=+$(section+'Surah').value,num=+$(section+'Ayah').value;if(!sid||!num)return st(statusId,'سورۃ اور آیت منتخب کریں۔',true);try{let a=await getAyah(sid,num),{data,error}=await db.from(table).select('*').eq('ayah_id',a.id).eq('content_status','published').limit(30);if(error)throw error;$(resultId).innerHTML=data?.length?data.map(r=>`<div class="item">${Object.entries(r).filter(([k,v])=>v&&!['id','ayah_id','created_by','verified_by'].includes(k)).map(([k,v])=>`<p><b>${esc(k.replaceAll('_',' '))}:</b> ${esc(v)}</p>`).join('')}</div>`).join(''):'<div class="empty">شائع شدہ اندراج موجود نہیں۔</div>';st(statusId,`آیت ${sid}:${num} دیکھی گئی۔`)}catch(e){st(statusId,e.message,true)}}
+$('loadWords').onclick=async()=>{let sid=+$('wordSurah').value,num=+$('wordAyah').value;try{let a=await getAyah(sid,num),{data,error}=await db.from('ayah_words').select('*').eq('ayah_id',a.id).eq('content_status','published').order('word_number');if(error)throw error;$('wordsResults').innerHTML=data?.length?data.map(w=>`<div class="item"><div class="arabic">${esc(w.arabic_word)}</div><div class="meta">لفظ ${w.word_number} · روٹ ${esc(w.root_text||'—')}</div><p>${esc(w.urdu_meaning||'اردو معنی موجود نہیں')}<br>${esc(w.english_meaning||'')}</p></div>`).join(''):'<div class="empty">شائع شدہ لفظی ڈیٹا موجود نہیں۔</div>';st('wordsStatus','مکمل۔')}catch(e){st('wordsStatus',e.message,true)}};
+$('loadGrammar').onclick=()=>verseTask('grammar','grammar_notes','grammarStatus','grammarResults');$('loadTafsir').onclick=()=>verseTask('tafsir','tafsir_entries','tafsirStatus','tafsirResults');$('loadTadabbur').onclick=()=>verseTask('tadabbur','tadabbur_entries','tadabburStatus','tadabburResults');
+$('searchRoots').onclick=async()=>{let q=$('rootSearch').value.trim();if(!q)return;let {data,error}=await db.from('quranic_roots').select('*').ilike('root_letters',`%${q}%`).eq('content_status','published').limit(20);$('rootsResults').innerHTML=error?esc(error.message):data?.length?data.map(r=>`<div class="item"><div class="arabic">${esc(r.root_letters)}</div>${Object.entries(r).filter(([k,v])=>v&&!['id','root_letters','created_by','verified_by'].includes(k)).map(([k,v])=>`<p><b>${esc(k.replaceAll('_',' '))}:</b> ${esc(v)}</p>`).join('')}</div>`).join(''):'<div class="empty">شائع شدہ روٹ نہیں ملا۔</div>'};
+$('runSearch').onclick=async()=>{let q=$('globalSearch').value.trim();if(!q)return;let [r,a]=await Promise.all([db.from('quranic_roots').select('*').eq('content_status','published').ilike('root_letters',`%${q}%`).limit(10),db.from('ayahs').select('surah_id,ayah_number,arabic_text').ilike('arabic_text',`%${q}%`).limit(10)]);let out=[...(r.data||[]).map(x=>`<div class="item"><b>روٹ: ${esc(x.root_letters)}</b><p>${esc(x.core_concept_ur||x.core_concept_en||'')}</p></div>`),...(a.data||[]).map(x=>`<div class="item"><div class="meta">سورۃ ${x.surah_id} · آیت ${x.ayah_number}</div><div class="arabic">${esc(x.arabic_text)}</div></div>`)];$('globalResults').innerHTML=out.length?out.join(''):'<div class="empty">کوئی نتیجہ نہیں ملا۔</div>'};
+const schemas={
+quranic_roots:[['root_letters','روٹ','text'],['core_concept_ur','بنیادی مفہوم اردو','textarea'],['core_concept_en','Core concept English','textarea'],['lexical_details','لغوی تفصیل','textarea'],['dictionary_references','لغوی حوالہ جات','textarea'],['quran_usage_notes','قرآنی استعمال','textarea'],['content_status','حیثیت','status']],
+tadabbur_entries:[['ayah_id','Ayah ID','number'],['surah_id','Surah ID','number'],['title','Title','text'],['central_message','Central message','textarea'],['reflection_notes','Reflection notes','textarea'],['content_status','Status','status']],
+ayah_words:[['ayah_id','Ayah ID','number'],['word_number','Word number','number'],['arabic_word','Arabic word','text'],['normalized_word','Normalized word','text'],['transliteration','Transliteration','text'],['root_text','Root letters','text'],['urdu_meaning','Urdu meaning','textarea'],['english_meaning','English meaning','textarea'],['source_name','Source name','text'],['source_url','Source URL','url'],['content_status','Status','status']],
+grammar_notes:[['ayah_id','Ayah ID','number'],['ayah_word_id','Ayah word ID (optional)','number'],['analysis_level','Analysis level','analysis'],['sarf_analysis','Sarf analysis (if column exists)','textarea'],['nahw_analysis','Nahw analysis (if column exists)','textarea'],['irab_analysis','I’rab analysis (if column exists)','textarea'],['notes','Notes (if column exists)','textarea'],['source_name','Source name (if column exists)','text'],['source_url','Source URL (if column exists)','url'],['content_status','Status','status']],
+tafsir_entries:[['ayah_id','Ayah ID','number'],['work_title','Work title','text'],['author_name','Author name','text'],['excerpt_or_summary','Excerpt / summary','textarea'],['language_code','Language code','language'],['source_url','Source URL','url'],['content_status','Status','status']],
+ayah_translations:[['ayah_id','Ayah ID','number'],['translation_id','Translation ID','number'],['translation_text','Translation text','textarea'],['content_status','Status','status']],
+translations:[['language_code','Language code','language'],['translator_name','Translator name','text'],['title','Translation title','text'],['is_enabled','Enabled (true/false)','boolean']],
+research_sources:[['source_type','ماخذ کی قسم','text'],['title','عنوان','text'],['author_or_editor','مصنف/مدوّن','text'],['publisher','ناشر','text'],['edition_year','اشاعت کا سال','text'],['volume_page','جلد/صفحہ','text'],['url','URL','url'],['license_or_permission','لائسنس/اجازت','textarea'],['notes','نوٹس','textarea']]};
+function form(row={}){$('adminFields').innerHTML=(schemas[$('adminTable').value]||[]).map(([k,label,type])=>{let v=row[k]??'',input=type==='textarea'?`<textarea id="f_${k}">${esc(v)}</textarea>`:type==='status'?`<select id="f_${k}">${['draft','review','published'].map(x=>`<option ${String(v||'draft')===x?'selected':''}>${x}</option>`).join('')}</select>`:type==='analysis'?`<select id="f_${k}">${['word','phrase','ayah'].map(x=>`<option ${String(v||'ayah')===x?'selected':''}>${x}</option>`).join('')}</select>`:type==='boolean'?`<select id="f_${k}"><option value="true" ${String(v)==='true'?'selected':''}>true</option><option value="false" ${String(v)==='false'?'selected':''}>false</option></select>`:type==='language'?`<select id="f_${k}">${['ur','en','ar'].map(x=>`<option ${String(v||'ur')===x?'selected':''}>${x}</option>`).join('')}</select>`:`<input id="f_${k}" type="${type==='number'?'number':type==='url'?'url':'text'}" value="${esc(v)}">`;return `<div class="field"><label>${esc(label)}</label>${input}</div>`}).join('')}
+$('adminTable').onchange=()=>{ $('recordId').value='';form()};$('clearForm').onclick=()=>{$('recordId').value='';form();st('adminStatus','نیا ریکارڈ درج کریں۔')};
+async function verify(){let {data,error}=await db.from('admin_users').select('user_id').eq('user_id',session.user.id).maybeSingle();admin=!!data&&!error;if(admin){$('loginCard').classList.add('hidden');$('adminTools').classList.remove('hidden');form();st('adminStatus','Admin کی تصدیق ہوگئی۔');await loadRecords()}else st('loginStatus','یہ اکاؤنٹ admin_users میں مجاز نہیں۔',true)}
+$('loginForm').onsubmit=async e=>{e.preventDefault();let {data,error}=await db.auth.signInWithPassword({email:$('email').value.trim(),password:$('password').value});if(error)return st('loginStatus',error.message,true);session=data.session;await verify();if(!admin){await db.auth.signOut();session=null}else st('loginStatus','لاگ اِن کامیاب۔')};
+$('logout').onclick=async()=>{await db.auth.signOut();session=null;admin=false;$('loginCard').classList.remove('hidden');$('adminTools').classList.add('hidden');st('loginStatus','لاگ آؤٹ ہوگیا۔')};
+async function loadRecords(){if(!admin)return;let {data,error}=await db.from($('adminTable').value).select('*').limit(30);if(error)return st('adminStatus',error.message,true);records=data||[];$('records').innerHTML=records.length?`<div class="tablewrap"><table><tr><th>ID</th><th>ریکارڈ کا خلاصہ</th><th></th></tr>${records.map((r,i)=>`<tr><td>${esc(r.id??'—')}</td><td>${esc(Object.entries(r).slice(0,5).map(([k,v])=>k+': '+(v??'')).join(' | '))}</td><td><button class="btn" data-ri="${i}">ترمیم</button></td></tr>`).join('')}</table></div>`:'<div class="empty">کوئی ریکارڈ نہیں۔</div>';st('adminStatus',`${records.length} ریکارڈ لوڈ ہوئے۔`)}
+$('loadRecords').onclick=loadRecords;$('records').onclick=e=>{let b=e.target.closest('[data-ri]');if(!b)return;let r=records[+b.dataset.ri];$('recordId').value=r.id??'';form(r);st('adminStatus','ریکارڈ فارم میں لوڈ ہوگیا۔')};
+$('save').onclick=async()=>{if(!admin||!session)return st('adminStatus','Admin لاگ اِن کریں۔',true);let table=$('adminTable').value,p={};for(let [k,label,type] of schemas[table]){let v=$('f_'+k).value.trim();p[k]=v===''?null:type==='number'?Number(v):type==='boolean'?v==='true':v}if(table==='quranic_roots'&&p.root_letters)p.root_letters=p.root_letters.replace(/\s+/g,'');if(!p.content_status&&['quranic_roots','tadabbur_entries','ayah_words','grammar_notes','tafsir_entries','ayah_translations'].includes(table))p.content_status='draft';let id=$('recordId').value;if(!id)p.created_by=session.user.id;let res=id?await db.from(table).update(p).eq('id',+id):await db.from(table).insert(p);if(res.error)return st('adminStatus','محفوظ نہیں ہوا: '+res.error.message,true);st('adminStatus',id?'ریکارڈ اپ ڈیٹ ہوگیا۔':'ریکارڈ محفوظ ہوگیا۔');await loadRecords()};
+$('delete').onclick=async()=>{if(!admin)return st('adminStatus','Admin لاگ اِن کریں۔',true);let id=+$('recordId').value;if(!id)return st('adminStatus','ریکارڈ ID منتخب کریں۔',true);if(!confirm('کیا آپ واقعی یہ ریکارڈ حذف کرنا چاہتے ہیں؟'))return;let {error}=await db.from($('adminTable').value).delete().eq('id',id);if(error)return st('adminStatus',error.message,true);$('recordId').value='';form();await loadRecords()};
+init().catch(e=>{console.error('Fahm-ul-Quran initialization failed:',e);st('homeStatus','Initialization failed: '+(e?.message||String(e)),true);$('connection').textContent='Error'});
 })();
-</script>
-
-<script>
-/* Fahm-ul-Quran: live Quran Explorer */
-(async function () {
-  const status = document.getElementById('fahm-db-status');
-  const originalSurah = document.getElementById('surahSelect');
-  const originalAyah = document.getElementById('ayahSelect');
-  const display = document.getElementById('ayahDisplay');
-  if (!originalSurah || !originalAyah || !display) return;
-
-  // Replace the demo dropdowns so their old demo-only listeners cannot interfere.
-  const surahSelect = originalSurah.cloneNode(false);
-  const ayahSelect = originalAyah.cloneNode(false);
-  originalSurah.replaceWith(surahSelect);
-  originalAyah.replaceWith(ayahSelect);
-
-  const makeOption = (value, label) => {
-    const option = document.createElement('option');
-    option.value = String(value);
-    option.textContent = label;
-    return option;
-  };
-  const setDisplay = (arabic, reference, detail) => {
-    display.replaceChildren();
-    const verse = document.createElement('div');
-    verse.className = 'arabic';
-    verse.textContent = arabic || 'Arabic text available nahi hai.';
-    const ref = document.createElement('p');
-    ref.textContent = reference;
-    display.append(verse, ref);
-    if (detail) {
-      const note = document.createElement('p');
-      note.className = 'muted';
-      note.textContent = detail;
-      display.append(note);
-    }
-  };
-
-  try {
-    status.textContent = 'Quran Explorer database se connect ho raha hai...';
-    let client;
-    for (let i = 0; i < 150; i++) {
-      if (window.fahmSupabase) { client = window.fahmSupabase; break; }
-      await new Promise(resolve => setTimeout(resolve, 200));
-    }
-    if (!client) throw new Error('Database client tayyar nahi hua. Internet refresh karke dobara try karein.');
-
-    const surahResult = await client
-      .from('surahs')
-      .select('id,arabic_name,transliterated_name,english_name,ayah_count,revelation_type')
-      .order('id', { ascending: true });
-    if (surahResult.error) throw surahResult.error;
-    const surahs = surahResult.data || [];
-    if (!surahs.length) throw new Error('Surah table khaali hai ya read permission nahi hai.');
-
-    surahSelect.replaceChildren();
-    surahs.forEach(s => {
-      const label = `${s.id} · ${s.arabic_name || ''} ${s.transliterated_name || s.english_name || ''}`.trim();
-      surahSelect.append(makeOption(s.id, label));
-    });
-
-    async function loadAyahs() {
-      const surahId = Number(surahSelect.value);
-      ayahSelect.replaceChildren(makeOption('', 'Ayat load ho rahi hain...'));
-      ayahSelect.disabled = true;
-      setDisplay('آیات لوڈ ہو رہی ہیں...', 'Surah ' + surahId, '');
-      const result = await client.from('ayahs')
-        .select('id,surah_id,ayah_number,arabic_text,text_source,text_version')
-        .eq('surah_id', surahId)
-        .order('ayah_number', { ascending: true });
-      if (result.error) throw result.error;
-      const ayahs = result.data || [];
-      if (!ayahs.length) throw new Error('Is Surah ki ayat nahi milin. Database permissions check karein.');
-      ayahSelect.replaceChildren();
-      ayahs.forEach(a => ayahSelect.append(makeOption(a.ayah_number, String(a.ayah_number))));
-      ayahSelect.disabled = false;
-      const selected = ayahs[0];
-      setDisplay(selected.arabic_text, `${surahs.find(x => Number(x.id) === surahId)?.arabic_name || ''} · ${surahId}:${selected.ayah_number}`,
-        `Source: ${selected.text_source || 'database'} · Version: ${selected.text_version || 'not specified'}`);
-      status.textContent = `Database connected successfully! ${surahs.length} Surah loaded.`;
-    }
-
-    async function showSelectedAyah() {
-      const surahId = Number(surahSelect.value);
-      const ayahNumber = Number(ayahSelect.value);
-      const result = await client.from('ayahs')
-        .select('arabic_text,text_source,text_version,ayah_number')
-        .eq('surah_id', surahId)
-        .eq('ayah_number', ayahNumber)
-        .maybeSingle();
-      if (result.error) throw result.error;
-      if (!result.data) throw new Error('Selected ayah database mein nahi mili.');
-      const s = surahs.find(x => Number(x.id) === surahId);
-      setDisplay(result.data.arabic_text, `${s?.arabic_name || ''} · ${surahId}:${result.data.ayah_number}`,
-        `Source: ${result.data.text_source || 'database'} · Version: ${result.data.text_version || 'not specified'}`);
-    }
-
-    surahSelect.addEventListener('change', () => loadAyahs().catch(e => {
-      status.textContent = 'Quran Explorer error: ' + (e.message || 'Unknown error');
-    }));
-    ayahSelect.addEventListener('change', () => showSelectedAyah().catch(e => {
-      status.textContent = 'Ayah load error: ' + (e.message || 'Unknown error');
-    }));
-    await loadAyahs();
-    const badge = document.querySelector('#page-quran .pill');
-    if (badge) badge.textContent = 'Live Quran database';
-    const notice = document.querySelector('#page-quran .notice');
-    if (notice) notice.textContent = 'Arabic Quran text database se load hota hai. Urdu aur English translations abhi verified/licensed source add hone ke baad dikhaye jayenge.';
-  } catch (error) {
-    status.textContent = 'Quran Explorer error: ' + (error.message || 'Unknown error');
-    console.error('Fahm-ul-Quran Quran Explorer:', error);
-  }
-})();
-</script>
-
-
-<script>
-/* Quran Explorer: load Surahs and Ayat from the existing Supabase database */
-(async function () {
-  const status = document.getElementById('fahm-db-status');
-  const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
-  try {
-    let tries = 0;
-    while (!window.fahmSupabase && tries < 150) { await wait(200); tries++; }
-    if (!window.fahmSupabase) throw new Error('Database client tayyar nahin hua. Page refresh karke dobara koshish karein.');
-
-    const db = window.fahmSupabase;
-    const oldSurah = document.getElementById('surahSelect');
-    const oldAyah = document.getElementById('ayahSelect');
-    const surahSelect = oldSurah.cloneNode(true); oldSurah.replaceWith(surahSelect);
-    const ayahSelect = oldAyah.cloneNode(true); oldAyah.replaceWith(ayahSelect);
-    const display = document.getElementById('ayahDisplay');
-    const pill = document.querySelector('#page-quran .section-head .pill');
-    let currentSurahs = [];
-
-    function setDisplay(arabic, reference, source) {
-      display.replaceChildren();
-      const text = document.createElement('div');
-      text.className = 'arabic';
-      text.textContent = arabic || 'Is ayah ka Arabic text nahin mila.';
-      const ref = document.createElement('p');
-      ref.textContent = reference;
-      display.append(text, ref);
-      if (source) {
-        const small = document.createElement('small');
-        small.className = 'muted';
-        small.textContent = 'Text source: ' + source;
-        display.appendChild(small);
-      }
-    }
-
-    async function loadAyahs() {
-      const sid = Number(surahSelect.value);
-      const surah = currentSurahs.find(x => Number(x.id) === sid);
-      ayahSelect.replaceChildren();
-      ayahSelect.disabled = true;
-      display.textContent = 'Ayat load ho rahi hain...';
-      const { data, error } = await db.from('ayahs')
-        .select('id,surah_id,ayah_number,arabic_text,text_source,text_version')
-        .eq('surah_id', sid).order('ayah_number');
-      if (error) throw error;
-      if (!data || !data.length) throw new Error('Is Surah ki Ayat table mein nahin milin.');
-      data.forEach(row => {
-        const opt = document.createElement('option');
-        opt.value = String(row.ayah_number);
-        opt.textContent = String(row.ayah_number);
-        ayahSelect.appendChild(opt);
-      });
-      ayahSelect.disabled = false;
-      const showSelected = () => {
-        const row = data.find(x => Number(x.ayah_number) === Number(ayahSelect.value));
-        if (row) setDisplay(row.arabic_text, `${surah.arabic_name} · ${surah.english_name} ${sid}:${row.ayah_number}`, row.text_source ? `${row.text_source}${row.text_version ? ' / ' + row.text_version : ''}` : row.text_version);
-      };
-      ayahSelect.onchange = showSelected;
-      showSelected();
-      if (status) status.textContent = `Database connected successfully! · ${currentSurahs.length} Surah · ${data.length} Ayat loaded for selected Surah.`;
-    }
-
-    status.textContent = 'Surah list database se load ho rahi hai...';
-    const { data, error } = await db.from('surahs')
-      .select('id,arabic_name,transliterated_name,english_name,ayah_count,revelation_type')
-      .order('id');
-    if (error) throw error;
-    if (!data || data.length !== 114) throw new Error(`Database se ${data ? data.length : 0} Surah milin; 114 ki tawaqqo thi.`);
-    currentSurahs = data;
-    surahSelect.replaceChildren();
-    data.forEach(s => {
-      const opt = document.createElement('option');
-      opt.value = String(s.id);
-      opt.textContent = `${s.id} · ${s.arabic_name} — ${s.transliterated_name || s.english_name}`;
-      surahSelect.appendChild(opt);
-    });
-    surahSelect.value = '1';
-    surahSelect.onchange = () => loadAyahs().catch(err => { display.textContent = 'Ayat load karne mein error: ' + err.message; status.textContent = 'Database error: ' + err.message; });
-    if (pill) pill.textContent = 'Live Quran database';
-    await loadAyahs();
-  } catch (err) {
-    if (status) status.textContent = 'Database error: ' + (err.message || String(err));
-    console.error('Fahm-ul-Quran Quran Explorer:', err);
-  }
-})();
-</script>
-
-</body></html>
+</script></body></html>
